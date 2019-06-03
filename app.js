@@ -7,7 +7,13 @@ const novelRoutes = require('./routes/novels');
 const partsRoutes = require('./routes/parts');
 
 
-mongoose.connect();
+mongoose.connect("mongodb+srv://Alaap:alaap008@cluster0-dzslo.mongodb.net/test?retryWrites=true", function(err) {
+    if (err) {
+        console.log("Database Not Connected", err);
+    } else {
+        console.log("Atlas Connected")
+    }
+});
 
 const port = 3000;
 const app = express();
