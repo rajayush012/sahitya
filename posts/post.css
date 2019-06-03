@@ -1,0 +1,69 @@
+.bg-light{
+  background: #FF512F;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #F09819, #FF512F);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #F09819, #FF512F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height:70px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+}
+.navbar-brand{
+  position: relative;
+margin-left: 0px;
+}
+
+.navbar-brand img{
+  position: relative;
+  margin-right: 0px;
+  left: 18px;
+}
+
+.lower-text{
+  position: relative;
+  top: 7px;
+  color:black;
+}
+.container{
+  margin:50px 20px 20px 30px;
+ }
+
+body{
+  background-image:url('https://images.unsplash.com/photo-1532153955177-f59af40d6472?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');
+}
+
+.card2,.card3,.card1,.card4,.card5,.card6{
+   height:150px;
+   color:black;
+  border:2px solid black;
+  margin-top:70px;
+  border-radius: 5px;
+  background-color:wheat;
+}
+.card-body{
+  transition: 0.3s;
+}
+.card-body:hover{
+  box-shadow: 0px 30px 40px 15px rgba(0, 0, 0, 0.16);
+}
+.social-media img{
+  height: 100px;
+  width:100px;
+  margin-right: 15px;
+  border-radius: 50px 50px;
+  display: inline-block;
+  border:1px solid black;
+  padding:10px
+}
+.social-media{
+  text-align:center;
+  margin-top: 20px;
+  margin-left: 15px;
+  padding: 20px; 
+}
+.footer{
+  margin-top:80px;
+  text-align:center;
+ background-color: gray;
+}
