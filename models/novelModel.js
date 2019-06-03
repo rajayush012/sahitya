@@ -8,8 +8,7 @@ const novelSchema =new mongoose.Schema({
     content: {type:String, required:true},
     mainauthor: {type: mongoose.Schema.Types.ObjectId,
         required: true, ref: 'Authors'},
-    collabauthor: [{type: mongoose.Schema.Types.ObjectId,
-        required: true, ref: 'Authors'}]
+    collabauthor: [{type: mongoose.Schema.Types.ObjectId, ref: 'Authors'}]
 });
 
 module.exports = mongoose.model('Novels', novelSchema);
