@@ -15,6 +15,18 @@ router.get('/',(req,res)=>{
         }
     })
 })
+router.post('/',(req,res)=>{
+    novels.create
+    ({
+    title: req.body.title,
+    idea: req.body.idea,
+    genre: req.body.genre,
+    status: req.body.status,
+    content: req.body.content,
+    mainauthor: req.body.mainauthor//add author
+    })
+})
+
 
 
 module.exports = router;
