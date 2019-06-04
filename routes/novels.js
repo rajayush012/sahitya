@@ -31,7 +31,7 @@ router.post('/',isLoggedIn, (req,res)=>{
     genre: req.body.genre,
     status: req.body.status,
     content: req.body.content,
-    mainauthor: {id:user._id , name: user.name} //add author
+    mainauthor: {id:req.user._id , name: user.name} //add author
     })
     
     res.redirect('/novels');

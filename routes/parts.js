@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-
+const Novels = require ('../models/novelModel')
 const router = express.Router();
 const parts= require ('../models/partModel');
 
@@ -19,12 +19,7 @@ router.get('/',isLoggedIn,(req,res)=>{
     // })
     res.send('Onparts')
 })
-<<<<<<< HEAD
-router.post('/',(req, res)=>{
- parts.create({
-     
- })
-=======
+
 
 router.get('/:novelid',isLoggedIn,(req,res)=>{
     Parts.find({novelid:req.params.novelid}, (err,parts)=>{
@@ -57,8 +52,7 @@ router.post('/:novelid/addpart',isLoggedIn,(req, res)=>{
         partcontent: req.body.partcontent
     });
     res.send('Success');
->>>>>>> a1baf448e5a66beaf4c5c606400df7b9d506f4b1
-   
+
 })
 
 function isLoggedIn(req,res,next){
@@ -68,9 +62,5 @@ function isLoggedIn(req,res,next){
      }
      res.redirect('/author/login');
  }
-<<<<<<< HEAD
- 
-=======
->>>>>>> a1baf448e5a66beaf4c5c606400df7b9d506f4b1
 
 module.exports = router;
