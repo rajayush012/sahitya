@@ -1,0 +1,13 @@
+Landing Page
+
+<% if(!currentAuthor){ %>
+
+<a href="/author/login">Login</a>
+<a href="/author/signup">Sign Up</a>
+
+<%}else if(currentAuthor){ %>
+
+<a href="/author/logout">Logout</a>
+<a href="/author/dashboard">Dashboard</a>
+
+<% } %>

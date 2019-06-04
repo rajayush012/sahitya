@@ -3,18 +3,20 @@ const mongoose = require('mongoose');
 
 const router = express.Router();
 const novels=require('../models/novelModel');
+
 router.get('/',(req,res)=>{
-    novels.find({}, (err, menuItems)=>{
+    novels.find({}, (err, posts)=>{
         if (err){
             console.log(err);
             res.redirect('/');
         }
         else
         {
-            res.send()
+            res.render('novels/posts',{posts: posts});
         }
     })
 })
+
 router.post('/',(req,res)=>{
     novels.create
     ({
