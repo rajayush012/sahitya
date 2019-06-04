@@ -2,14 +2,27 @@ const express = require('express');
 const mongoose = require('mongoose');
 const Author = require('../models/authorModel');
 const passport = require('passport');
-
+const Novels = require('../models/novelModel');
+const Parts = require('../models/partModel');
 const router = express.Router();
 
 
 
 router.get('/dashboard',isLoggedIn,(req,res)=>{
    // console.log(req.user);
-    res.render('author/dashboard');
+   Novels.find({mainauthor: {id: req.user._id}},(err,novels)=>{
+        if(err){
+            console.log(err);
+        }else{
+            Parts.find({collabauthor: {id: req.user.id}}, (err,parts)=>{
+                if(err){
+                    console.log(err);
+                }else{
+                    res.render('author/dashboard',{novels:novels, parts:parts});
+                }});
+        }
+   });
+    
 });
 
 router.get('/signup',(req,res)=>{

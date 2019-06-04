@@ -1,11 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
-
+const Novels = require ('../models/novelModel')
 const router = express.Router();
-const Parts= require ('../models/partModel');
-const Novels = require('../models/novelModel');
+const parts= require ('../models/partModel');
 
-router.get('/',(req,res)=>{
+
+router.get('/',isLoggedIn,(req,res)=>{
     //console.log(req.user)
     // novels.find({}, (err, menuItems)=>{
     //     if (err){
@@ -19,6 +19,7 @@ router.get('/',(req,res)=>{
     // })
     res.send('Onparts')
 })
+
 
 router.get('/:novelid',isLoggedIn,(req,res)=>{
     Parts.find({novelid:req.params.novelid}, (err,parts)=>{

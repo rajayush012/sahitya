@@ -25,7 +25,18 @@
     <main>
         <div class="container">
             <div class="content-wrapper">
-                <div class="heading"><h1><%=currentAuthor%></h1></div>
+                <div class="heading text-center">
+                    <h2><span class="op"><%= currentUser.name %></span></h2>
+                </div>
+                <div>
+                    <ul>
+                        <li>Username: <%= currentUser.username %></li>
+                        <li>Email: <%= currentUser.email %></li>
+                    </ul>
+                    <ul>
+                        
+                    </ul>
+                </div>
             </div>
         </div>
 

@@ -34,13 +34,14 @@ app.use(express.static(__dirname+'/public'));
 passport.use(new localStrategy(Author.authenticate()));
 passport.serializeUser(Author.serializeUser());
 passport.deserializeUser(Author.deserializeUser());
+app.use((req,res,next)=>{
+    res.locals.currentUser = req.user;
+    next();
+});
 app.use('/author',authorRoutes);
 app.use('/novels',novelRoutes);
 app.use('/parts',partsRoutes);
-app.use((req,res,next)=>{
-    res.locals.currentAuthor = req.user;
-    next();
-});
+
 app.use(morgan('dev'));
 
 app.get('/',(req,res)=>{
