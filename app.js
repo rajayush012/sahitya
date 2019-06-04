@@ -30,7 +30,7 @@ app.use(require('express-session')({
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(passport.initialize());
 app.use(passport.session());
-
+app.use(express.static(__dirname+'/public'));
 passport.use(new localStrategy(Author.authenticate()));
 passport.serializeUser(Author.serializeUser());
 passport.deserializeUser(Author.deserializeUser());

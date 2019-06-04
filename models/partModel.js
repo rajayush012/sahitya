@@ -3,9 +3,10 @@ const mongoose = require('mongoose');
 const partSchema =new mongoose.Schema({
     novelid: {type: mongoose.Schema.Types.ObjectId,
             required: true, ref: 'Novels'},
+    title: {type: String, required: true},
     partcontent: {type:String, required:true},
-    collabauthor: [{type: mongoose.Schema.Types.ObjectId,
-        required: true, ref: 'Author'}]
+    collabauthor: {type: mongoose.Schema.Types.ObjectId,
+        required: true, ref: 'Author'}
 });
 
 module.exports = mongoose.model('Parts', partSchema);

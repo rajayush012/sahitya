@@ -1,0 +1,7 @@
+<h1>Adding a part to the novel id: <%= req.params.novelid %></h1>
+
+<form action="/:<%=req.params.novelid%>/addPart" method="POST">
+    <input type="text" name="title" placeholder="title">
+    <textarea name="partcontent" placeholder="Content"></textarea>
+    <input type="submit">
+</form>

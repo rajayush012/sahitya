@@ -12,7 +12,7 @@ router.get('/',isLoggedIn,(req,res)=>{
         }
         else
         {
-            res.render('novels/posts',{posts: posts});
+            res.render('novels/post',{posts: posts});
         }
     })
 });
@@ -28,7 +28,7 @@ router.post('/',isLoggedIn, (req,res)=>{
     content: req.body.content,
     mainauthor: req.user._id//add author
     })
-
+    
     res.redirect('/novels');
 })
 

@@ -17,11 +17,11 @@ router.get('/signup',(req,res)=>{
 });
 
 router.post('/signup',(req,res)=>{
-    var newAuthor = new Author({username: req.body.username, email: req.body.email});
+    var newAuthor = new Author({username: req.body.username, email: req.body.email,name: req.body.name});
     Author.register(newAuthor,req.body.password, (err,author)=>{
         if(err){
             console.log(err);
-            res.render('author/signup')
+            res.redirect('/')
         }
         passport.authenticate("local")(req,res, ()=>{
         res.redirect('/author/dashboard')
@@ -34,7 +34,7 @@ router.get('/login',(req,res)=>{
 });
 
 router.post('/login',passport.authenticate("local",{
-    successRedirect: "/author/dashboard",
+    successRedirect: "/novels",
     failureRedirect: "/author/login"
 }),(req,res)=>{
     
@@ -42,7 +42,7 @@ router.post('/login',passport.authenticate("local",{
 
 router.get('/logout',(req,res)=>{
     req.logOut();
-    res.redirect('/author/login');
+    res.redirect('/');
 })
 
 function isLoggedIn(req,res,next){
