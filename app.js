@@ -10,7 +10,7 @@ const localStrategy = require('passport-local');
 const passportLocalMongoose = require('passport-local-mongoose');
 const Author = require('./models/authorModel');
 
-mongoose.connect("mongodb://localhost/sahitya", function(err) {
+mongoose.connect("mongodb+srv://Alaap:alaap008@cluster0-dzslo.mongodb.net/test?retryWrites=true", function(err) {
     if (err) {
         console.log("Database Not Connected", err);
     } else {
@@ -36,7 +36,7 @@ passport.serializeUser(Author.serializeUser());
 passport.deserializeUser(Author.deserializeUser());
 app.use('/author',authorRoutes);
 app.use('/novels',novelRoutes);
-app.use('./parts',partsRoutes);
+app.use('/parts',partsRoutes);
 app.use((req,res,next)=>{
     res.locals.currentAuthor = req.user;
     next();
