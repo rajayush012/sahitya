@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const router = express.Router();
 const novels=require('../models/novelModel');
 
-router.get('/',(req,res)=>{
+router.get('/',isLoggedIn,(req,res)=>{
     novels.find({}, (err, posts)=>{
         if (err){
             console.log(err);
@@ -17,7 +17,7 @@ router.get('/',(req,res)=>{
     })
 })
 
-router.post('/',(req,res)=>{
+router.post('/',isLoggedIn, (req,res)=>{
     novels.create
     ({
     title: req.body.title,
@@ -29,6 +29,12 @@ router.post('/',(req,res)=>{
     })
 })
 
-
+function isLoggedIn(req,res,next){
+    // console.log(req.isAuthenticated());
+     if(req.isAuthenticated()){
+         return next();
+     }
+     res.redirect('/author/login');
+ }
 
 module.exports = router;
