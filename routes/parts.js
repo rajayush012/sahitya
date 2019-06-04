@@ -20,7 +20,7 @@ router.get('/',(req,res)=>{
     res.send('Onparts')
 })
 
-router.get('/:novelid',(req,res)=>{
+router.get('/:novelid',isLoggedIn,(req,res)=>{
     Parts.find({novelid:req.params.novelid}, (err,parts)=>{
         if(err){
             console.log(err);
@@ -30,11 +30,19 @@ router.get('/:novelid',(req,res)=>{
     });
 })
 
-router.get('/:novelid/addpart',(req,res)=>{
-   res.render('parts/addPart');
+router.get('/:novelid/addpart',isLoggedIn,(req,res)=>{
+    Novels.findById(req.params.novelid,(err,novel)=>{
+        if(err)
+            console.log(err);
+        else{
+            res.render('parts/addPart',{novel: novel});
+        }
+        
+    })
+   
 });
 
-router.post('/:novelid/addpart',(req, res)=>{
+router.post('/:novelid/addpart',isLoggedIn,(req, res)=>{
  //   console.log(req.user);
     Parts.create({
         title: req.body.tile,
@@ -45,5 +53,13 @@ router.post('/:novelid/addpart',(req, res)=>{
     res.send('Success');
    
 })
+
+function isLoggedIn(req,res,next){
+    // console.log(req.isAuthenticated());
+     if(req.isAuthenticated()){
+         return next();
+     }
+     res.redirect('/author/login');
+ }
 
 module.exports = router;

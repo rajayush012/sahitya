@@ -50,15 +50,7 @@ router.get('/:novelid',isLoggedIn,(req,res)=>{
             console.log(err);
             res.redirect('/novels');
         }else{
-            Author.findById(novel.mainauthor , (err,author)=>{
-                if(err){
-                    console.log(err);
-                }else{
-                    res.render('novels/noveldetail',{novel:novel,author:author});
-                }
-            })
-
-            
+            res.render('novels/noveldetail',{novel: novel});
         }
     });
 });
