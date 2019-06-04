@@ -8,7 +8,7 @@ const router = express.Router();
 
 
 router.get('/dashboard',isLoggedIn,(req,res)=>{
-    console.log(req.user);
+   // console.log(req.user);
     res.render('author/dashboard');
 });
 

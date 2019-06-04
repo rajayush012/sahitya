@@ -15,7 +15,8 @@ router.get('/',isLoggedIn,(req,res)=>{
             res.render('novels/posts',{posts: posts});
         }
     })
-})
+});
+
 
 router.post('/',isLoggedIn, (req,res)=>{
     novels.create
@@ -25,8 +26,14 @@ router.post('/',isLoggedIn, (req,res)=>{
     genre: req.body.genre,
     status: req.body.status,
     content: req.body.content,
-    mainauthor: req.body.mainauthor//add author
+    mainauthor: req.user._id//add author
     })
+
+    res.redirect('/novels');
+})
+
+router.get('/addNovel',(req,res)=>{
+    res.render('novels/addNovel');
 })
 
 function isLoggedIn(req,res,next){
@@ -35,6 +42,9 @@ function isLoggedIn(req,res,next){
          return next();
      }
      res.redirect('/author/login');
- }
+}
+
+
+
 
 module.exports = router;
