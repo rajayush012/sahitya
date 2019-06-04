@@ -45,6 +45,10 @@ router.get('/logout',(req,res)=>{
     res.redirect('/');
 })
 
+
+router.get('/dahboard',(req,res)=>{
+    res.render('author/dashboard');
+})
 function isLoggedIn(req,res,next){
    // console.log(req.isAuthenticated());
     if(req.isAuthenticated()){

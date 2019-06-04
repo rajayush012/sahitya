@@ -47,6 +47,8 @@ app.get('/',(req,res)=>{
     res.render('home');
 })
 
+
+
 app.listen(port, ()=>{
     console.log('Server is up on port: ',port);
 });

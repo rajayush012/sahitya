@@ -44,13 +44,18 @@ router.get('/:novelid/addpart',isLoggedIn,(req,res)=>{
 
 router.post('/:novelid/addpart',isLoggedIn,(req, res)=>{
  //   console.log(req.user);
+ 
     Parts.create({
-        title: req.body.tile,
+        title: req.body.title,
         novelid: req.params.novelid,
         collabauthor: {id: req.user._id,name: req.user.name},
         partcontent: req.body.partcontent
+    },(err,part)=>{
+        if(err)
+            console.log(err);
+        res.redirect('/novels');
     });
-    res.send('Success');
+    
    
 })
 
