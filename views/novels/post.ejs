@@ -54,12 +54,15 @@
       
       <%posts.forEach((post)=>{ %>
 
+        <a href="/novels/<%= post._id %>" style="text-decoration:none">
         <div class="card">
           <div class="card-body">
             <h5 class="car-title"><%= post.title %></h5>
-            
+            <h6 class="card-subtitle text-muted"></h6> <!--add XHR Req here for username-->
+            <p><%= post.idea %></p>
           </div>
         </div>
+      </a>
 
       <% })%>
 
@@ -68,7 +71,7 @@
     </div>
   </div>
 
-  <div class="jumbotron-new2 jumbotron-fluid">
+  <div class="jumbotron-new2 fixed-bottom jumbotron-fluid">
     <div class="footer">
       <h1 class="display-4">Contact Us</h1>
       <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
