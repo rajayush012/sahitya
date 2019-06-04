@@ -5,8 +5,14 @@ const partSchema =new mongoose.Schema({
             required: true, ref: 'Novels'},
     title: {type: String, required: true},
     partcontent: {type:String, required:true},
-    collabauthor: {type: mongoose.Schema.Types.ObjectId,
-        required: true, ref: 'Author'}
-});
+    collabauthor: {
+        id: {type: mongoose.Schema.Types.ObjectId,
+                required: true, ref: 'Author'},
+        name: {type: String, required: true, ref:'Author'}
+    }
+})
 
-module.exports = mongoose.model('Parts', partSchema);
+module.exports = mongoose.model('Part',partSchema);
+
+
+

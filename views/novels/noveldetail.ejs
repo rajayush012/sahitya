@@ -12,7 +12,7 @@
 <body>
     <header>
             <nav class="navbar fixed-top navbar-light bg-light">
-                    <a class="navbar-brand" href="#">Sticky top</a>
+                    <a class="navbar-brand" href="#">सahitya</a>
             </nav>
     </header>
 
@@ -20,15 +20,20 @@
         <div class="container">
             <div class="content-wrapper">
                <div class="heading display-4"> <%= novel.title %> </div>
-                <div class="my-3 text-muted"><%= author.name %></div>
+                <div class="my-3 text-muted"><%= novel.mainauthor.name %></div>
                 <div class="content"><%= novel.content %></div>
                 <% if(novel.collabauthor){ %>
                     <div class="collabauth">
                         <ul>
-                            <% novel.collabauth.forEach((collabauth)) %>
+                            <% novel.collabauthor.forEach((auth)=>{ %>
+                                <li><%= auth.name %></li>
+                            <% }) %>
                         </ul>
                     </div>
                 <% } %>
+                <div>
+                    <a href="/parts/<%=novel._id%>/addPart" class="btn btn-danger">Collaborate!</a>
+                </div>
             </div>
         </div>
     </main>

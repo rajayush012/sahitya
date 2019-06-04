@@ -24,7 +24,7 @@ router.post('/signup',(req,res)=>{
             res.redirect('/')
         }
         passport.authenticate("local")(req,res, ()=>{
-        res.redirect('/author/dashboard')
+        res.redirect('/novels')
         })
     } );
 });
