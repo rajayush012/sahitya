@@ -47,7 +47,7 @@ router.post('/:novelid/addpart',isLoggedIn,(req, res)=>{
     Parts.create({
         title: req.body.tile,
         novelid: req.params.novelid,
-        collabauthor: req.user._id,
+        collabauthor: {id: req.user._id,name: req.user.name},
         partcontent: req.body.partcontent
     });
     res.send('Success');
