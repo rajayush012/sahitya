@@ -57,7 +57,7 @@ text-decoration: none !important;
 .about-p{
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin-top: 30px;
-    padding-bottom: 70px;
+    padding-bottom: 100px;
     font-size:20px;
 }
 body {
@@ -69,12 +69,15 @@ body {
       font-family: Georgia, 'Times New Roman', Times, serif;
   }
   .submitbtn{
+    padding:10px;
     margin-left:5%;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .form-control{
 
-  
+  margin-bottom: 10px;
       width:400px;
      
      
@@ -91,7 +94,7 @@ body {
 	
     opacity: 0.7;
     color: aliceblue;
-    height: 700px;
+    height: 800px;
     text-align: center;
    font-family: Georgia, 'Times New Roman', Times, serif;
   padding-top: 60px;
@@ -100,7 +103,7 @@ body {
 
 
 .jumbotron-new2{
-    margin-top:80px;
+    margin-top:120px;
     height:400px;
     color: black;
     padding-top: 50px;
@@ -166,4 +169,8 @@ body {
   .button1:hover{
       background-color: black !important;
       box-shadow: 0 15px 15px 5px black;
+  }
+
+  #message{
+      font-weight: bolder;
   }
