@@ -33,3 +33,7 @@ border-radius: 5px;
 .merge-req{
     padding: 10px;
 }
+
+.list-col{
+    list-style: none;
+}

@@ -22,17 +22,17 @@
             
                <div class="heading display-4"> <%= novel.title %> </div>
                 <div class="my-3 text-muted">by - <%= novel.mainauthor.name %></div>
-                <% if(novel.collabauth.length !== 0) { %>
+                <% if(novel.collabauthor.length !== 0) { %>
                     
-
+                    <ul class="list-col">
+                            <h4>Collaborated with:</h4>
+                                    <% novel.collabauthor.forEach((auth)=>{ %>
+                                        <li><%= auth.name %></li>
+                                    <% }) %>
+                                </ul>
                 <% } %>
 
-                <ul class="list">
-                        <h4>Collaborated with:</h4>
-                                <% novel.collabauthor.forEach((auth)=>{ %>
-                                    <li><%= auth.name %></li>
-                                <% }) %>
-                            </ul>
+                
                 <hr>
                 <div><h5>Content:</h5></div>
                 <div class="content"><%= novel.content %></div>
