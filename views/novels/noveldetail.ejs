@@ -21,15 +21,24 @@
             <div class="content-wrapper">
             
                <div class="heading display-4"> <%= novel.title %> </div>
-                <div class="my-3 text-muted"><%= novel.mainauthor.name %></div>
+                <div class="my-3 text-muted">by - <%= novel.mainauthor.name %></div>
+                <% if(novel.collabauth.length !== 0) { %>
+                    
+
+                <% } %>
+
+                <ul class="list">
+                        <h4>Collaborated with:</h4>
+                                <% novel.collabauthor.forEach((auth)=>{ %>
+                                    <li><%= auth.name %></li>
+                                <% }) %>
+                            </ul>
+                <hr>
+                <div><h5>Content:</h5></div>
                 <div class="content"><%= novel.content %></div>
                 <% if(novel.collabauthor){ %>
                     <div class="collabauth">
-                        <ul>
-                            <% novel.collabauthor.forEach((auth)=>{ %>
-                                <li><%= auth.name %></li>
-                            <% }) %>
-                        </ul>
+                        
                     </div>
                 <% } %>
                 <div>
@@ -57,6 +66,8 @@
                         <% }) %>
                         </div>
                         <% } %>
+
+                        
                 </div>
             </div>
         </div>
