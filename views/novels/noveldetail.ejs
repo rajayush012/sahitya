@@ -38,8 +38,10 @@
                     <% if(!novel.mainauthor.id.equals(currentUser._id)){ %>
                         <a href="/parts/<%=novel._id%>/addPart" class="btn btn-danger">Collaborate!</a> 
                         <% }else{ %>
-                        <div class="text-center"><a class="btn btn-info"href="/novels/<%=novel._id%>/edit">Edit it</a>
-                            <a class="btn btn-danger ml-3"href="#">Delete</a>
+                        <div class="text-center"><a class="btn btn-info" href="/novels/<%=novel._id%>/edit">Edit it</a>
+                            <form action="/novels/<%=novel._id%>/delete" method="POST">
+                            <input type="submit" class="btn btn-info" value="Delete">
+                            </form>
                         </div>
                         <hr>
                         <div class="merge-req">
