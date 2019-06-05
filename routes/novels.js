@@ -130,12 +130,13 @@ router.post('/:novelid/merge/:partid',isLoggedIn,(req,res)=>{
             console.log(err);
         }
         Novels.findById(req.params.novelid,(err,nov)=>{
-            var newContent = nov.content+" "+part.partcontent;
+            var newContent = part.partcontent;
            // console.log(newContent);
                 if(err){
                     console.log(err);
                 }else{
                     nov.content = newContent;
+                    nov.collabauthor.push(part.collabauthor);
                     nov.save();
                     Parts.findByIdAndDelete(req.params.partid,(err,newerres)=>{
                         if(err){
