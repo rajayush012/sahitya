@@ -64,6 +64,17 @@ router.get('/:novelid',isLoggedIn,(req,res)=>{
     });
 });
 
+router.get('/:novelid/:partid',isLoggedIn,(req,res)=>{
+    const novelid = req.params.novelid;
+    Parts.findById(req.params.partid,(err,part)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.render('parts/partdetail',{part:part,novelid:novelid});
+        }
+    })
+});
+
 function isLoggedIn(req,res,next){
     // console.log(req.isAuthenticated());
      if(req.isAuthenticated()){
