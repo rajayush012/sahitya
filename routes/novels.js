@@ -126,10 +126,19 @@ router.get('/:novelid/:partid',isLoggedIn,(req,res)=>{
         if(err){
             console.log(err);
         }else{
-            res.render('parts/partdetail',{part:part,novelid:novelid});
+            Novels.findById(req.params.novelid,(err,novel)=>{
+                if(err){
+                    console.log(err);
+                }else{
+                    res.render('parts/partdetail',{part:part,novelid:novelid,novel:novel});
+                }
+            })
+            
         }
     })
 });
+
+router.get('/')
 
 router.post('/:novelid/merge/:partid',isLoggedIn,(req,res)=>{
     
@@ -144,7 +153,9 @@ router.post('/:novelid/merge/:partid',isLoggedIn,(req,res)=>{
                     console.log(err);
                 }else{
                     nov.content = newContent;
+                   
                     nov.collabauthor.push(part.collabauthor);
+                    
                     nov.save();
                     Parts.findByIdAndDelete(req.params.partid,(err,newerres)=>{
                         if(err){

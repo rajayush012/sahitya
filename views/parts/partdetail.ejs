@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/stylesheets/noveldetail.css" />
     <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <script src="/scripts/diff.js"></script>
 </head>
 
 <body>
@@ -19,24 +20,37 @@
 
     <main>
         <div class="container">
+            
             <div class="content-wrapper">
                 <div class="heading display-4">
                     <%= part.title %>
                 </div>
-                <div class="my-3 text-muted">
-                    <%= part.collabauthor.name %>
+                <div class="my-3 ml-2 text-muted">
+                  - changes suggested by <%= part.collabauthor.name %>
                 </div>
-                <div class="content">
+                <h4>Changed content:</h4>
+                <div id="dest" class="content hidden">
                     <%= part.partcontent %>
                 </div>
-                <a class="btn btn-warning" href="/novels/<%= novelid %>">Go back</a>
+                
             </div>
+            <div class="diferenece">
+                <h4></h4>
+                <div class="container difbox">
+                    <div id="display">
+
+                    </div>
+
+                </div>
+            </div>
+            
             <form class="form-inline" action="/novels/<%=novelid%>/merge/<%=part._id%>" method="POST">
-                <input class="btn btn-success mr-2" type="submit" value="Merge"></input>
+                <a class="btn btn-warning my-3" href="/novels/<%= novelid %>">Go back</a>
+                <input class="btn btn-success ml-3 my-3" type="submit" value="Merge"></input>
             </form>
             <form class="form-inline" action="/novels/<%=novelid%>/reject/<%=part._id%>" method="POST">
-                <input type="text" placeholder="Add Comments" name ="comment"></input>
-                <input class="btn btn-success mr-2" type="submit" name="status" value="Reject">
+                <input type="text" style="width: 300px;" class="form-control" placeholder="Add Comments" name ="comment"></input>
+                <input class="btn btn-danger ml-3 my-3" type="submit" name="status" value="Reject">
             </input>
             </form>
         </div>
@@ -45,16 +59,41 @@
     </main>
 
     <footer>
-
+        <div id="source" class="hidden"><%=novel.content%></div>
     </footer>
-
+    
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <script>
+    
+    var one = document.getElementById('source').innerText,
+    other = document.getElementById('dest').innerText,
+    color = '',
+    span = null;
+ 
+        var diff = JsDiff.diffWords(one, other),
+            display = document.getElementById('display'),
+            fragment = document.createDocumentFragment();
+            console.log(display);
+        diff.forEach(function(part){
+        // green for additions, red for deletions
+        // grey for common parts
+        color = part.added ? 'green' :
+            part.removed ? 'red' : 'black';
+        span = document.createElement('span');
+        span.style.color = color;
+        span.appendChild(document
+            .createTextNode(part.value));
+        fragment.appendChild(span);
+        });
+        
+display.appendChild(fragment);
 
+    </script>
 </body>
 
 </html>
