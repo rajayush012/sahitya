@@ -68,8 +68,8 @@ background-size: cover;
   margin-left: 15px;
   padding: 20px; 
 }
-.footer{
-  margin-top:80px;
+footer{
+  margin-top:200px;
   text-align:center;
   
 }
@@ -109,3 +109,4 @@ background-size: cover;
   border: 1px solid black;
   border-radius: 5px;
 }
+
