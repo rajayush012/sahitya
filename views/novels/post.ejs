@@ -37,6 +37,10 @@
 
   <div class="container">
     <div class="wrapper">
+      <div class="heading">
+        <h1>Recently added novels:</h1>
+        <hr>
+      </div>
       
       <%posts.forEach((post)=>{ %>
 
@@ -45,7 +49,7 @@
           <div class="card-body">
             <h2 class="car-title"><%= post.title %></h2>
             <h4 class="card-subtitle text-muted"></h4> <!--add XHR Req here for username-->
-            <p><%= post.idea %></p>
+            <p class="text-muted">Idea - <%= post.idea %></p>
           </div>
         </div>
       </a>
