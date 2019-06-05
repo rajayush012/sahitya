@@ -58,6 +58,7 @@ text-decoration: none !important;
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin-top: 30px;
     padding-bottom: 70px;
+    font-size:20px;
 }
 body {
     background-color:lightgray;
@@ -84,7 +85,7 @@ body {
   }
   .jumbotron-new{
      
-    background-image: url('/templates/istockphoto-510566602-612x612.jpg');
+    background-image: url('/templates/Unknown.jpg');
 	background-size: cover;
     background-repeat: no-repeat;
 	
@@ -93,13 +94,16 @@ body {
     height: 700px;
     text-align: center;
    font-family: Georgia, 'Times New Roman', Times, serif;
-  padding-top: 30px;
+  padding-top: 60px;
+  padding-bottom:40px;
   }
+
 
 .jumbotron-new2{
     margin-top:80px;
     height:400px;
     color: black;
+    padding-top: 50px;
 }
 
 
@@ -137,7 +141,7 @@ body {
 }
 .text-center{
      
-    background-image: url('/templates/istockphoto-510566602-612x612.jpg');
+    background-image: url('/templates/Unknown.jpg');
 	background-size: cover;
     background-repeat: no-repeat;
 	
@@ -151,12 +155,12 @@ body {
 
   .sahitya-icon{
   
-    border:2px solid #492E08;
+    border:2px solid black;
     border-radius: 10px;
    
   }
   .button1{
-    background-color: #492E08 !important;
+  
     color: white !important;
   }
   .button1:hover{
