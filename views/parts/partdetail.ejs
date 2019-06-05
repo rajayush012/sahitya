@@ -31,6 +31,7 @@
                 </div>
                 <a class="btn btn-warning" href="/novels/<%= novelid %>">Go back</a>
             </div>
+            <%if (currentUser._id === part.collabauthor.id) { console.log("Hello 1")%>
             <form class="form-inline" action="/novels/<%=novelid%>/merge/<%=part._id%>" method="POST">
                 <input class="btn btn-success mr-2" type="submit" value="Merge"></input>
             </form>
@@ -39,6 +40,16 @@
                 <input class="btn btn-success mr-2" type="submit" name="status" value="Reject">
             </input>
             </form>
+            <% } else { console.log("Hello 2")%>
+                <form class="form-inline" action="/novels/<%=novelid%>/edit/<%=part._id%>" method="POST">
+                    <textarea name="partcontent" id="" cols="30" rows="10">
+                        <%=part.partcontent%>
+                    </textarea>
+                <input class="btn btn-success mr-2" type="submit" value="Edit">
+                </input>
+                </form>
+                <%}%>
+
         </div>
 
 

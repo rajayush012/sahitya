@@ -143,22 +143,15 @@ router.post('/:novelid/merge/:partid',isLoggedIn,(req,res)=>{
                             console.log(err);
                         }
                         res.redirect('/novels/'+req.params.novelid);
-                    })
-
-
-                    
+                    })  
                 }
-                
-          
-
         }
-           
         )
     })
     
 })
-router.post('/:novelid/reject/:partid',isLoggedIn,(req,res)=>{
-    
+
+router.post('/:novelid/reject/:partid',isLoggedIn,(req,res)=>{    
     Parts.findById(req.params.partid,(err,part)=>{
         if(err){
             console.log(err);
@@ -171,7 +164,21 @@ router.post('/:novelid/reject/:partid',isLoggedIn,(req,res)=>{
         res.redirect('/novels/'+req.params.novelid);
         }
     })
-    
+})
+router.post('/:novelid/edit/:partid',isLoggedIn,(req,res)=>{    
+    Parts.findById(req.params.partid,(err,part)=>{
+        if(err){
+            console.log(err);
+        }
+        else
+        {
+        part.status="";
+        part.partcontent=req.body.partcontent;
+        part.save();    
+        console.log(part.partcontent);
+        res.redirect('/novels/'+req.params.novelid);
+        }
+    })
 })
 
 
