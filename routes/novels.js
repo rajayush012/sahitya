@@ -64,6 +64,21 @@ router.get('/:novelid',isLoggedIn,(req,res)=>{
     });
 });
 
+router.get('/:novelid/edit',isLoggedIn,(req,res)=>{
+    Novels.findById(req.params.novelid, (err,novel)=>{
+        if(err)
+        {
+            console.log(err);
+            res.redirect('/novels');
+        }
+        else
+        {
+            res.render('novels/editNovel',{novel: novel});
+        }
+});
+});
+
+
 function isLoggedIn(req,res,next){
     // console.log(req.isAuthenticated());
      if(req.isAuthenticated()){
