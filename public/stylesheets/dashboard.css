@@ -75,6 +75,7 @@ body{
 }
 
 .status-green{
+    margin-left: 20px;
     display: inline-block;
     height: 10px;
     width: 10px;
