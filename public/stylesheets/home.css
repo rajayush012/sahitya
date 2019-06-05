@@ -1,21 +1,29 @@
-.navbar{
-    background: #FF512F;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #F09819, #FF512F);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #F09819, #FF512F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
-}
+
 #heading{
     font-family: 'Hind', sans-serif;
 }
 .navbar-brand{
     position: relative;
 margin-left: 0px;
+color: white;
+border: 1px solid white;
+padding: 5px 15px;
+font-size: 30px;
+border-radius: 5px;
+text-decoration: none !important;
+
 }
+
+.navbar{
+    box-shadow: 3px 10px 20px 3px gray;
+}
+
 
 .navbar-brand img{
     position: relative;
     margin-right: 0px;
     left: 18px;
+    color: white !important;
 }
 
 .lower-text{
@@ -23,22 +31,18 @@ margin-left: 0px;
     top: 7px;
 }
 .jumbotron{
-	background-image: url('/templates/sahityabg.jpg');
-	background-size: cover;
-    background-repeat: no-repeat;
+	background-image: url('https://images.unsplash.com/photo-1468779036391-52341f60b55d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1521&q=80');
+    background-size: cover;
     opacity: 0.7;
-    color: aliceblue;
+    color: black;
     height: 600px;
-    text-align: center;
+    opacity: 0.8;
+
    font-family: Georgia, 'Times New Roman', Times, serif;
-    filter: blur(10px);
-    -webkit-filter: blur(10px);
-    -moz-filter: blur(10px);
-    -o-filter: blur(10px);
-    -ms-filter: blur(10px);
-    filter: url("/templates/sahityabg.jpg");
+  
 } 
 .btn {
+    
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
     margin-top: 30px;
 }

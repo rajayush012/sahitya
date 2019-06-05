@@ -1,8 +1,8 @@
 .bg-light{
-  background: #C02425;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #F0CB35, #C02425);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #F0CB35, #C02425); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  background: #000000;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
   height:70px;
   position: fixed;
   top: 0;
@@ -12,16 +12,17 @@ background: linear-gradient(to right, #F0CB35, #C02425); /* W3C, IE 10+/ Edge, F
 }
 
 
+
 .navbar{
   -webkit-box-shadow: 0 8px 6px -6px #999;
     -moz-box-shadow: 0 8px 6px -6px #999;
-    box-shadow: 0 8px 6px -6px #999;
+    box-shadow: 3px 8px 16px -6px black;
 }
 
 .lower-text{
   position: relative;
   top: 7px;
-  color:black;
+  color:white;
 }
 .container{
   margin:50px 20px 20px 30px;
@@ -29,10 +30,12 @@ background: linear-gradient(to right, #F0CB35, #C02425); /* W3C, IE 10+/ Edge, F
 
 body{
 /*  background-image:url('https://images.unsplash.com/photo-1532153955177-f59af40d6472?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');*/
-background-image: url('https://images.unsplash.com/photo-1532153259564-a5f24f261f51?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80') ;
-/*background-image: url('https://images.unsplash.com/photo-1510936111840-65e151ad71bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1067&q=80'); */
-background-size: cover;
 
+/*background-image: url('https://images.unsplash.com/photo-1510936111840-65e151ad71bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1067&q=80'); */
+
+background: #EFEFBB;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #D4D3DD, #EFEFBB);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #D4D3DD, #EFEFBB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 
 }
@@ -40,17 +43,18 @@ background-size: cover;
 
 .card{
   transition: 0.3s;
-  box-shadow: 0px 5px 5px 0px black;
-  background: #334d50;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #cbcaa5, #334d50);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #cbcaa5, #334d50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  border-color: #334d50 !important;
-  color: beige;
+  border: 1px solid lightgrey;
+
+  color: black;
   width: 70%;
   margin: 5px auto;
 }
 .card:hover{
-  opacity: 0.8;
+  border-color: #8e9eab;
+  background: #8e9eab;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   box-shadow: 0px 20px 30px 2px black;
 }
 .social-media img{
@@ -69,9 +73,28 @@ background-size: cover;
   padding: 20px; 
 }
 footer{
-  margin-top:200px;
+
   text-align:center;
+  padding-top: 40px;
+  color: white;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background: #000000;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #434343, #000000); 
   
+}
+
+.jumbotron-new2{
+ 
+  
+  background-position: 0% 25%;
+ 
+  
+}
+
+.navbar-brand{
+  color: white !important;
 }
 
 
@@ -87,9 +110,9 @@ footer{
 
 .nav-item{
   opacity: 0.9 !important;
-  color: black !important;
-  font-size: 20px;
-  border-left: 1px solid black;
+  color: white !important;
+  font-size: 15px;
+  
   transition: 0.3s !important;
 }
 
