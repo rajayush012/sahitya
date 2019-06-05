@@ -49,3 +49,31 @@ main{
 .navbar-brand{
     color: white !important;
 }
+
+.nav-item{
+    color: white !important;
+    opacity: 0.6 !important;
+    transition: 0.3s;
+}
+
+.nav-item:hover{
+    opacity: 1 !important;
+}
+
+.status-red{
+    margin-left: 20px;
+    box-shadow: 0 0 2px 2px red; 
+    border-radius: 5px;
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    background-color: red;
+}
+
+.status-green{
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    box-shadow: 0 0 2px 2px green; 
+    background-color: green;
+}
