@@ -16,37 +16,21 @@
 <body>
   <!-- Nav bar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand">
-      <img src="/templates/sa.png" width="50" height="40" class="d-inline-block align-top" alt="">
-      <span class="lower-text">ahitya</span>
-    </a>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-
-        <li class="nav-item">
-          <div class="btn btn-default navbar-btn" style="background-color: rgb(202, 186, 186)" type="button">Log Out</div>
-        </li>
-        <li class="nav-item">
-          <a href="/novels/addNovel" class="btn" type="button">Add new post</a>
-        </li>
-        <li class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" style="margin-right:700px" type="button" id="dropdownMenuButton"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Genre
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-
-            <a class="dropdown-item" href="#">Thriller</a>
-            <a class="dropdown-item" href="#">Science Fiction</a>
-            <a class="dropdown-item" href="#">Romance</a>
-            <a class="dropdown-item" href="#">Mystery</a>
-            <a class="dropdown-item" href="#">Horror</a>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
+      <a class="navbar-brand" href="#"><h3>सahitya</h3></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link " href="#">Home</a>
+          <a class="nav-item nav-link" href="#">Dashboard</a>
+          <a class="nav-item nav-link">Signed in as <%= currentUser.name %> : Logout</a>
+          
+             
+            
+        </div>
+      </div>
+    </nav>
 
 
   <div class="container">
@@ -54,11 +38,11 @@
       
       <%posts.forEach((post)=>{ %>
 
-        <a href="/novels/<%= post._id %>" style="text-decoration:none">
+        <a class="m-5" href="/novels/<%= post._id %>" style="text-decoration:none">
         <div class="card">
           <div class="card-body">
-            <h5 class="car-title"><%= post.title %></h5>
-            <h6 class="card-subtitle text-muted"></h6> <!--add XHR Req here for username-->
+            <h2 class="car-title"><%= post.title %></h2>
+            <h4 class="card-subtitle text-muted"></h4> <!--add XHR Req here for username-->
             <p><%= post.idea %></p>
           </div>
         </div>

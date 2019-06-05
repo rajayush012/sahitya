@@ -9,16 +9,20 @@ const router = express.Router();
 
 
 router.get('/dashboard',isLoggedIn,(req,res)=>{
-   // console.log(req.user);
-   Novels.find({mainauthor: {id: req.user._id}},(err,novels)=>{
+    //console.log(req.user);
+    var novparts = new Array();
+    var ob = {};
+   Novels.find({'mainauthor.id': req.user._id},(err,novels)=>{
         if(err){
             console.log(err);
         }else{
-            Parts.find({collabauthor: {id: req.user.id}}, (err,parts)=>{
+           
+            Parts.find({'collabauthor.id' : req.user._id }, (err,parts)=>{
                 if(err){
                     console.log(err);
                 }else{
-                    res.render('author/dashboard',{novels:novels, parts:parts});
+                    
+                    res.render('author/dashboard',{novels:novels, parts:parts }); 
                 }});
         }
    });

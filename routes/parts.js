@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const Novels = require ('../models/novelModel')
 const router = express.Router();
-const parts= require ('../models/partModel');
+const Parts= require ('../models/partModel');
 
 
 router.get('/',isLoggedIn,(req,res)=>{

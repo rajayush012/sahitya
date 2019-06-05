@@ -9,3 +9,25 @@ nav{
     background: linear-gradient(to right, #f7b733, #fc4a1a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     
 }
+
+.part-box{
+    border: 1px solid lightgray;
+    width: 500px;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+.part-box:hover{
+    box-shadow: 3px 10px 20px 3px lightslategray;
+    background: #8E0E00;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #1F1C18, #8E0E00);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #1F1C18, #8E0E00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+color: white;
+border-color: #8E0E00;
+border-radius: 5px;
+
+}
+
+.merge-req{
+    padding: 10px;
+}

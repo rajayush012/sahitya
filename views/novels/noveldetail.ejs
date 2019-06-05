@@ -32,7 +32,27 @@
                     </div>
                 <% } %>
                 <div>
-                    <a href="/parts/<%=novel._id%>/addPart" class="btn btn-danger">Collaborate!</a>
+                   
+                    <hr>
+
+                    <% if(!novel.mainauthor.id.equals(currentUser._id)){ %>
+                        <a href="/parts/<%=novel._id%>/addPart" class="btn btn-danger">Collaborate!</a> 
+                        <% }else{ %>
+                        <div class="text-center"><a class="btn btn-info"href="#">Edit it</a>
+                            <a class="btn btn-danger ml-3"href="#">Delete</a>
+                        </div>
+                        <hr>
+                        <div class="merge-req">
+                        <h2 class="my-3">Merge Request List: </h2>
+                        <ul>
+                        <% parts.forEach(part => { %>
+                            <div class="part-box">
+                               <h3> <%= part.title %> </h3>
+                               <a class="btn btn-success" href="#">Merge</a><a class="btn btn-warning ml-2" href="#">Read it</a>
+                            </div>
+                        <% }) %>
+                        </div>
+                        <% } %>
                 </div>
             </div>
         </div>

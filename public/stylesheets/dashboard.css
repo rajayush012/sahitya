@@ -35,3 +35,8 @@ main{
 .heading:hover{
     box-shadow: 3px 10px 20px 3px gray;
 }
+
+.content-wrapper li{
+    list-style: none;
+}
+

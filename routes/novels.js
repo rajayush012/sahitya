@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const Author = require('../models/authorModel');
 const router = express.Router();
 const Novels=require('../models/novelModel');
+const Parts = require('../models/partModel');
 
 router.get('/',isLoggedIn,(req,res)=>{
     Novels.find({}, (err, posts)=>{
@@ -50,7 +51,15 @@ router.get('/:novelid',isLoggedIn,(req,res)=>{
             console.log(err);
             res.redirect('/novels');
         }else{
-            res.render('novels/noveldetail',{novel: novel});
+
+            Parts.find({novelid: novel._id}, (err,parts)=>{
+
+                if(err)
+                    console.log(err);
+                res.render('novels/noveldetail',{novel: novel, parts:parts});
+
+            })
+            
         }
     });
 });

@@ -28,14 +28,27 @@
                 <div class="heading text-center">
                     <h2><span class="op"><%= currentUser.name %></span></h2>
                 </div>
-                <div>
+                <div class="mt-4">
                     <ul>
                         <li>Username: <%= currentUser.username %></li>
                         <li>Email: <%= currentUser.email %></li>
                     </ul>
                     <ul>
-                        
+                        <% if(novels.length !== 0) { %>
+                            <h4>Novels</h4>
+                        <% novels.forEach((novel)=>{ %>
+                          <li><a href="/novels/<%= novel._id %>"><%= novel.title %></a></li>
+                        <% }) %>
+                        <% } %>
                     </ul>
+                    <ul>
+                        <% if(parts) {%>
+                            <h4>Parts</h4>
+                            <% parts.forEach((part)=>{ %>
+                              <li><%= part.title %></li>
+                            <% }) %>
+                            <% } %>
+                        </ul>
                 </div>
             </div>
         </div>
@@ -58,3 +71,5 @@
     </body>
 
 </html>
+
+

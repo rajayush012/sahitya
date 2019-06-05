@@ -1,7 +1,8 @@
 .bg-light{
-  background: #FF512F;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #F09819, #FF512F);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #F09819, #FF512F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #C02425;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #F0CB35, #C02425);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #F0CB35, #C02425); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   height:70px;
   position: fixed;
   top: 0;
@@ -9,15 +10,12 @@
   z-index: 9999;
   width: 100%;
 }
-.navbar-brand{
-  position: relative;
-margin-left: 0px;
-}
 
-.navbar-brand img{
-  position: relative;
-  margin-right: 0px;
-  left: 18px;
+
+.navbar{
+  -webkit-box-shadow: 0 8px 6px -6px #999;
+    -moz-box-shadow: 0 8px 6px -6px #999;
+    box-shadow: 0 8px 6px -6px #999;
 }
 
 .lower-text{
@@ -30,23 +28,30 @@ margin-left: 0px;
  }
 
 body{
-  background-image:url('https://images.unsplash.com/photo-1532153955177-f59af40d6472?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');
-  
+/*  background-image:url('https://images.unsplash.com/photo-1532153955177-f59af40d6472?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');*/
+background-image: url('https://images.unsplash.com/photo-1532153259564-a5f24f261f51?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80') ;
+/*background-image: url('https://images.unsplash.com/photo-1510936111840-65e151ad71bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1067&q=80'); */
+background-size: cover;
+
+
+
 }
 
-.card2,.card3,.card1,.card4,.card5,.card6{
-   height:150px;
-   color:black;
-  border:2px solid black;
-  margin-top:70px;
-  border-radius: 5px;
-  background-color:wheat;
-}
-.card-body{
+
+.card{
   transition: 0.3s;
+  box-shadow: 0px 5px 5px 0px black;
+  background: #334d50;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #cbcaa5, #334d50);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #cbcaa5, #334d50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-color: #334d50 !important;
+  color: beige;
+  width: 70%;
+  margin: 5px auto;
 }
-.card-body:hover{
-  box-shadow: 0px 30px 40px 15px rgba(0, 0, 0, 0.16);
+.card:hover{
+  opacity: 0.8;
+  box-shadow: 0px 20px 30px 2px black;
 }
 .social-media img{
   height: 100px;
@@ -66,5 +71,41 @@ body{
 .footer{
   margin-top:80px;
   text-align:center;
- background-color: gray;
+  
+}
+
+
+/*
+.card{
+  color: black;
+  width: 70%;
+  margin: 5px auto;
+  border: #334d50;
+  
+}
+*/
+
+.nav-item{
+  opacity: 0.9 !important;
+  color: black !important;
+  font-size: 20px;
+  border-left: 1px solid black;
+  transition: 0.3s !important;
+}
+
+.nav-item:hover{
+  color: wheat !important;
+  
+}
+
+.end-shift{
+  float: right;
+}
+.text-right{
+  text-align: right;
+}
+
+.sahitya-icon{
+  border: 1px solid black;
+  border-radius: 5px;
 }
