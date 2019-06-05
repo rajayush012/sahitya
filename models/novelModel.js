@@ -5,7 +5,10 @@ const novelSchema =new mongoose.Schema({
     idea: { type: String, required: true },
     genre: { type: String, required: true },
     status: {type:String, required: true},
-    content: {type:String, required:true},
+    contents: [{
+        content:{type:String, required:true},
+        timestamp:{type:Date, required:true}
+    }],
     mainauthor: {
         id: {type: mongoose.Schema.Types.ObjectId,
             required: true, ref: 'Authors'},

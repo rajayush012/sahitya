@@ -39,7 +39,7 @@ router.post('/',isLoggedIn, (req,res)=>{
     idea: req.body.idea,
     genre: req.body.genre,
     status: req.body.status,
-    content: req.body.content,
+    contents: {content:req.body.content, timestamp: Date.now()},
     mainauthor: {id:req.user._id , name: user.name} //add author
     })
     
@@ -98,7 +98,13 @@ router.post('/:novelid/edit',isLoggedIn, (req,res)=>
                 novel.idea= req.body.idea;
                 novel.genre= req.body.genre;
                 novel.status= req.body.status;
-                novel.content= req.body.content;
+                var x = req.body.content;
+                var y = Date.now();
+                var ob ={
+                    content: x,
+                    timestamp: y
+                }
+                novel.contents.push(ob) ;
                 novel.save();
                 res.redirect('/novels/'+req.params.novelid);
             }else
@@ -139,11 +145,16 @@ router.post('/:novelid/merge/:partid',isLoggedIn,(req,res)=>{
         }
         Novels.findById(req.params.novelid,(err,nov)=>{
             var newContent = part.partcontent;
+            var newDate = Date.now();
+            var obj={
+                content: newContent,
+                timestamp: newDate
+            }
            // console.log(newContent);
                 if(err){
                     console.log(err);
                 }else{
-                    nov.content = newContent;
+                    nov.content.push(newContent);
                     nov.collabauthor.push(part.collabauthor);
                     nov.save();
                     Parts.findByIdAndDelete(req.params.partid,(err,newerres)=>{
