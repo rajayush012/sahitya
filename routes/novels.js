@@ -78,6 +78,39 @@ router.get('/:novelid/edit',isLoggedIn,(req,res)=>{
 });
 });
 
+router.post('/:novelid/edit',isLoggedIn, (req,res)=>
+{
+    Novels.findById(req.params.novelid,(err,novel)=>{
+        if(err){
+            console.log(err)
+        }else{
+
+            if(req.user._id.equals(novel.mainauthor.id)){
+                novel.title= req.body.title;
+                novel.idea= req.body.idea;
+                novel.genre= req.body.genre;
+                novel.status= req.body.status;
+                novel.content= req.body.content;
+                novel.save();
+                res.redirect('/novels/'+req.params.novelid);
+            }else
+            {
+                res.redirect('/novels');
+            }        
+        }
+    })
+})
+
+router.post('/:novelid/delete',isLoggedIn, (req,res)=>
+{
+    Novels.findByIdAndDelete(req.params.novelid,(err,novel)=>{
+        if(err){
+            console.log(err)
+        }else{
+            res.redirect('/novels');
+        }
+    })
+})
 
 router.get('/:novelid/:partid',isLoggedIn,(req,res)=>{
     const novelid = req.params.novelid;
@@ -99,8 +132,6 @@ router.post('/:novelid/merge/:partid',isLoggedIn,(req,res)=>{
         Novels.findById(req.params.novelid,(err,nov)=>{
             var newContent = nov.content+" "+part.partcontent;
            // console.log(newContent);
-            
-
                 if(err){
                     console.log(err);
                 }else{
