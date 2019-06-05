@@ -6,7 +6,7 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/stylesheets/noveldetail.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
 
 </head>
 <body>
@@ -35,7 +35,7 @@
                 
                 <hr>
                 <div><h5>Content:</h5></div>
-                <div class="content"><%= novel.content %></div>
+                <div class="content container"><%= novel.content %></div>
                 <% if(novel.collabauthor){ %>
                     <div class="collabauth">
                         
@@ -46,17 +46,19 @@
                     <hr>
 
                     <% if(!novel.mainauthor.id.equals(currentUser._id)){ %>
-                        <a href="/parts/<%=novel._id%>/addPart" class="btn btn-danger">Collaborate!</a> 
+                        <a href="/parts/<%=novel._id%>/addPart" class="btn btn-danger">Collaborate!</a> <a class="btn btn-dark ml-3" href="/novels">Go back to all novels</a>
                         <% }else{ %>
                         
                             <form class="form-inline text-center" action="/novels/<%=novel._id%>/delete" method="POST">
                                 <div class="text-center"><a class="btn btn-info" href="/novels/<%=novel._id%>/edit">Edit it</a>
-                            <input type="submit" class="btn btn-danger" value="Delete">
+                            <input type="submit" class="btn btn-danger ml-3" value="Delete"> <a class="btn btn-dark ml-3" href="/novels">Go back to all novels</a>
                             </form>
                         </div>
                         <hr>
                         <div class="merge-req">
-                        <h2 class="my-3">Merge Request List: </h2>
+
+                           
+                        <h2 class="my-3">Merge Request List: </h2> 
                         <ul>
                         <% parts.forEach(part => { %>
                             <% if (part.status !== "Reject"){ %>
@@ -65,6 +67,7 @@
                             <form class="form-inline" action="/novels/<%=novel._id%>/merge/<%=part._id%>" method="POST">
                                 <input class="btn btn-success mr-2" type="submit" value="Merge"></input>
                                 <a class="btn btn-warning ml-2" href="/novels/<%=novel._id%>/<%=part._id%>">Read it</a>
+                               
                             </form>
                             </div>
                        <% } %>

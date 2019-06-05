@@ -57,11 +57,21 @@
                     <ul class="text-center"> 
                         <% if(parts.length !== 0) {%>
                             <h4>Pending Collaborations Request</h4>
-                            <% parts.forEach((part)=>{ %>
+                            <% parts.forEach((part)=>{ if (part.status !=="Reject") { %>
                               <li><a href="/novels/<%= part.novelid %>/<%=part._id%>" style="text-decoration:none"><%= part.title %></a></li>
-                            <% }) %>
+                            <% }}) %>
                             <% } %>
                         </ul>
+                        <ul class="text-center"> 
+                            <% if(parts.length !== 0) {%>
+                                <h4>Rejected Collaborations Request</h4>
+                                <% parts.forEach((part)=>{ if (part.status ==="Reject") { %>
+                                  <li><a href="/novels/<%= part.novelid %>/<%=part._id%>" style="text-decoration:none"><%= part.title %></a>
+                                    Comments : <%= part.comment %>
+                                </li>
+                                <% }}) %>
+                                <% } %>
+                            </ul>
                 </div>
             </div>
         </div>

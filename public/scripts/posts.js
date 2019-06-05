@@ -28,7 +28,7 @@ function filterNovels(element){
     
     document.getElementById('lidisp').innerHTML = "";
     novs.forEach((item)=>{
-        if(item.genre === x){
+        if(item.genre === x || x === 'all'){
         document.getElementById('lidisp').innerHTML+=`<a class="m-5" href="/novels/${item._id}" style="text-decoration:none">
         <div class="card">
           <div class="card-body">
@@ -39,7 +39,6 @@ function filterNovels(element){
         </div>
       </a>`
         }
-
         
     });
 

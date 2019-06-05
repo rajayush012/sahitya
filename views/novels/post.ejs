@@ -38,10 +38,8 @@
     <div class="wrapper">
       <div class="heading">
         <h1>Recently added novels:</h1>
-        
-        <hr>
-
-        <div id="list2">
+        <div id="list2" class="list-disp">
+          <span class="text-white">Category : </span>
           <select id="slopt" onchange="filterNovels(this)">
             <option>all</option>
             <option>Sci-Fi</option>
@@ -51,13 +49,18 @@
             <option>Historic</option>
             <option>Mystery</option>
           </select>
+        </div>
+      </div>
+      
+        <hr class="my-5"> 
+
       
           <div id="lidisp" >
       
           </div>
-        </div>
+        
 
-      </div>
+      
     
     </div>
   </div>
@@ -65,7 +68,7 @@
 
   
 <footer>
-  <div class="jumbotron-new2 jumbotron-fluid">
+  <div class="jumbotron-new2 jumbotron-fluid sticky-bottom">
     <div class="footer">
       <h1 class="display-4">Contact Us!</h1>
       <p class="lead">We believe in you so contact us if you want to give your feedback or even just a "Hello"</p>

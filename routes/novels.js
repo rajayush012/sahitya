@@ -175,8 +175,7 @@ router.post('/:novelid/reject/:partid',isLoggedIn,(req,res)=>{
         {
         part.status=req.body.status;
         part.comment=req.body.comment;
-        part.save();
-        console.log("Hello");    
+        part.save();    
         res.redirect('/novels/'+req.params.novelid);
         }
     })
