@@ -4,6 +4,14 @@ const Author = require('../models/authorModel');
 const router = express.Router();
 const Novels=require('../models/novelModel');
 const Parts = require('../models/partModel');
+const cors = require('cors');
+
+router.get('/allnovels',cors(),(req,res)=>{
+    Novels.find({},(err,novs)=>{
+        res.json({novs});
+    })
+})
+
 
 router.get('/',isLoggedIn,(req,res)=>{
     Novels.find({}, (err, posts)=>{
@@ -175,11 +183,11 @@ router.post('/:novelid/edit/:partid',isLoggedIn,(req,res)=>{
         part.status="";
         part.partcontent=req.body.partcontent;
         part.save();    
-        console.log(part.partcontent);
         res.redirect('/novels/'+req.params.novelid);
         }
     })
 })
+
 
 
 

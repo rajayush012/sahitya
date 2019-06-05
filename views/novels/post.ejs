@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="/stylesheets/post.css">
   <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
 <title>स : Novel Feed</title>
-
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 </head>
 
@@ -38,29 +38,37 @@
     <div class="wrapper">
       <div class="heading">
         <h1>Recently added novels:</h1>
-        <hr>
+        <div id="list2" class="list-disp">
+          <span class="text-white">Category : </span>
+          <select id="slopt" onchange="filterNovels(this)">
+            <option>all</option>
+            <option>Sci-Fi</option>
+            <option>Science</option>
+            <option>Doc</option>
+            <option>Fantasy</option>
+            <option>Historic</option>
+            <option>Mystery</option>
+          </select>
+        </div>
       </div>
       
-      <%posts.forEach((post)=>{ %>
+        <hr class="my-5"> 
 
-        <a class="m-5" href="/novels/<%= post._id %>" style="text-decoration:none">
-        <div class="card">
-          <div class="card-body">
-            <h2 class="car-title"><%= post.title %></h2>
-            <p class="card-subtitle text-muted">by - <%= post.mainauthor.name %></p> <!--add XHR Req here for username-->
-            <p class="text-muted">Idea - <%= post.idea %></p>
+      
+          <div id="lidisp" >
+      
           </div>
-        </div>
-      </a>
-
-      <% })%>
+        
 
       
     
     </div>
   </div>
+<hr>
+
+  
 <footer>
-  <div class="jumbotron-new2 jumbotron-fluid">
+  <div class="jumbotron-new2 jumbotron-fluid sticky-bottom">
     <div class="footer">
       <h1 class="display-4">Contact Us!</h1>
       <p class="lead">We believe in you so contact us if you want to give your feedback or even just a "Hello"</p>
@@ -76,6 +84,7 @@
     </div>
   </div>
 </footer>
+<script src="/scripts/posts.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"

@@ -9,6 +9,7 @@ nav{
     background: linear-gradient(to left, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   
 }
+
 .navbar-brand{
     color:white !important; 
 }
@@ -36,4 +37,18 @@ border-radius: 5px;
 
 .list-col{
     list-style: none;
+}
+
+main{
+    margin-bottom: 100px;
+}
+
+body{
+  background-image: url('/templates/pattern.png')  
+}
+.content{
+    background-color: #f4f4f4 !important;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid grey;
 }
