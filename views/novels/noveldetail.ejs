@@ -59,6 +59,7 @@
                         <h2 class="my-3">Merge Request List: </h2>
                         <ul>
                         <% parts.forEach(part => { %>
+                            <% if (part.status !== "Reject"){ %>
                             <div class="part-box">
                                <h3> <%= part.title %> </h3>
                             <form class="form-inline" action="/novels/<%=novel._id%>/merge/<%=part._id%>" method="POST">
@@ -66,6 +67,7 @@
                                 <a class="btn btn-warning ml-2" href="/novels/<%=novel._id%>/<%=part._id%>">Read it</a>
                             </form>
                             </div>
+                       <% } %>
                         <% }) %>
                         </div>
                         <% } %>

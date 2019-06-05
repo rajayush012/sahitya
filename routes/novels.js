@@ -157,6 +157,25 @@ router.post('/:novelid/merge/:partid',isLoggedIn,(req,res)=>{
     })
     
 })
+router.post('/:novelid/reject/:partid',isLoggedIn,(req,res)=>{
+    
+    Parts.findById(req.params.partid,(err,part)=>{
+        if(err){
+            console.log(err);
+        }
+        else
+        {
+        part.status=req.body.status;
+        part.comment=req.body.comment;
+        part.save();
+        console.log("Hello");    
+        res.redirect('/novels/'+req.params.novelid);
+        }
+    })
+    
+})
+
+
 
 function isLoggedIn(req,res,next){
     // console.log(req.isAuthenticated());
