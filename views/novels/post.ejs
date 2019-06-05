@@ -40,31 +40,30 @@
         <h1>Recently added novels:</h1>
         
         <hr>
-      </div>
-      
-      <%posts.forEach((post)=>{ %>
 
-        <a class="m-5" href="/novels/<%= post._id %>" style="text-decoration:none">
-        <div class="card">
-          <div class="card-body">
-            <h2 class="car-title"><%= post.title %></h2>
-            <p class="card-subtitle text-muted">by - <%= post.mainauthor.name %></p> <!--add XHR Req here for username-->
-            <p class="text-muted">Idea - <%= post.idea %></p>
+        <div id="list2">
+          <select id="slopt" onchange="filterNovels(this)">
+            <option>all</option>
+            <option>Sci-Fi</option>
+            <option>Science</option>
+            <option>Doc</option>
+            <option>Fantasy</option>
+            <option>Historic</option>
+            <option>Mystery</option>
+          </select>
+      
+          <div id="lidisp" >
+      
           </div>
         </div>
-      </a>
 
-      <% })%>
-
-      
+      </div>
     
     </div>
   </div>
-
+<hr>
 
   
-
-  </div>
 <footer>
   <div class="jumbotron-new2 jumbotron-fluid">
     <div class="footer">
