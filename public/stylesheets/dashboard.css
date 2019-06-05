@@ -10,6 +10,9 @@ nav{
 main{
     margin-top: 150px;
 }
+body{
+    background-image: url("/templates/footer_lodyas.png");
+}
 
 .content-wrapper{
     width: 60%;
@@ -17,6 +20,7 @@ main{
     border: 1px solid  #928DAB;
     border-radius: 10px;
     box-shadow: 0 10px 20px #777;
+    background-color: azure;
     
 }
 
@@ -76,6 +80,4 @@ main{
     width: 10px;
     box-shadow: 0 0 2px 2px green; 
     background-color: green;
-    border-radius: 5px;
-    margin-left: 20px;
 }
