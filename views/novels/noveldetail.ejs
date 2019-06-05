@@ -48,7 +48,7 @@
                         <% parts.forEach(part => { %>
                             <div class="part-box">
                                <h3> <%= part.title %> </h3>
-                               <a class="btn btn-success" href="#">Merge</a><a class="btn btn-warning ml-2" href="#">Read it</a>
+                               <a class="btn btn-success" href="#">Merge</a><a class="btn btn-warning ml-2" href="/novels/<%=novel._id%>/<%=part._id%>">Read it</a>
                             </div>
                         <% }) %>
                         </div>
