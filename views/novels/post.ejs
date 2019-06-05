@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="/stylesheets/post.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
     crossorigin="anonymous">
-
+<title>स : Novel Feed</title>
 
 
 </head>
@@ -48,7 +48,7 @@
         <div class="card">
           <div class="card-body">
             <h2 class="car-title"><%= post.title %></h2>
-            <h4 class="card-subtitle text-muted"></h4> <!--add XHR Req here for username-->
+            <p class="card-subtitle text-muted">by - <%= post.mainauthor.name %></p> <!--add XHR Req here for username-->
             <p class="text-muted">Idea - <%= post.idea %></p>
           </div>
         </div>

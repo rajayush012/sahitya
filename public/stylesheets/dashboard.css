@@ -76,4 +76,6 @@ main{
     width: 10px;
     box-shadow: 0 0 2px 2px green; 
     background-color: green;
+    border-radius: 5px;
+    margin-left: 20px;
 }
