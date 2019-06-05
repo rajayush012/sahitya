@@ -37,6 +37,9 @@ background-size: cover;
 
 }
 
+.container{
+  margin-top: 100px;
+}
 
 .card{
   transition: 0.3s;

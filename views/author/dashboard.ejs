@@ -16,9 +16,22 @@
     
     <header>
             <nav class="navbar fixed-top navbar-light bg-light">
-
-                    <a class="navbar-brand" href="#">सahitya</a>
-                    <a class="nav-item">Home</a>
+                    <a class="navbar-brand" href="#"><h3>सahitya</h3></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                      <div class="navbar-nav">
+                        
+                        <a class="nav-item nav-link" href="/novels">Home</a>
+                        <a class="nav-item nav-link" href="/novels/addNovel">Start a new novel</a>
+                        <a class="nav-item nav-link"  href="/author/dashboard" href="#">Dashboard</a>
+                        <a href="/author/logout" class="nav-item nav-link">Signed in as <%= currentUser.name %> : Logout</a>
+                        
+                           
+                          
+                      </div>
+                    </div>
             </nav>
     </header>
     
@@ -29,23 +42,24 @@
                     <h2><span class="op"><%= currentUser.name %></span></h2>
                 </div>
                 <div class="mt-4">
-                    <ul>
-                        <li>Username: <%= currentUser.username %></li>
-                        <li>Email: <%= currentUser.email %></li>
+                    <ul class="text-center">
+                        <li><h3>Username: <%= currentUser.username %></h3></li>
+                        <li><h3>Email id: <%= currentUser.email %></h3></li>
                     </ul>
-                    <ul>
+                    <hr>
+                    <ul class="text-center"> 
                         <% if(novels.length !== 0) { %>
-                            <h4>Novels</h4>
+                            <h4>Novels on सahitya</h4>
                         <% novels.forEach((novel)=>{ %>
-                          <li><a href="/novels/<%= novel._id %>"><%= novel.title %></a></li>
+                          <li><a href="/novels/<%= novel._id %>" style="text-decoration:none"><%= novel.title %></a></li>
                         <% }) %>
                         <% } %>
                     </ul>
-                    <ul>
+                    <ul class="text-center"> 
                         <% if(parts) {%>
-                            <h4>Parts</h4>
+                            <h4>Pending Collaborations</h4>
                             <% parts.forEach((part)=>{ %>
-                              <li><%= part.title %></li>
+                              <li><a href="/novels/<%= part.novelid %>/<%=part._id%>" style="text-decoration:none"><%= part.title %></a></li>
                             <% }) %>
                             <% } %>
                         </ul>
