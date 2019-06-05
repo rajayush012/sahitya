@@ -38,9 +38,10 @@
                     <% if(!novel.mainauthor.id.equals(currentUser._id)){ %>
                         <a href="/parts/<%=novel._id%>/addPart" class="btn btn-danger">Collaborate!</a> 
                         <% }else{ %>
-                        <div class="text-center"><a class="btn btn-info" href="/novels/<%=novel._id%>/edit">Edit it</a>
-                            <form action="/novels/<%=novel._id%>/delete" method="POST">
-                            <input type="submit" class="btn btn-info" value="Delete">
+                        
+                            <form class="form-inline text-center" action="/novels/<%=novel._id%>/delete" method="POST">
+                                <div class="text-center"><a class="btn btn-info" href="/novels/<%=novel._id%>/edit">Edit it</a>
+                            <input type="submit" class="btn btn-danger" value="Delete">
                             </form>
                         </div>
                         <hr>
@@ -50,7 +51,7 @@
                         <% parts.forEach(part => { %>
                             <div class="part-box">
                                <h3> <%= part.title %> </h3>
-                               <form action="/novels/<%=novel._id%>/merge/<%=part._id%>" method="POST"><input class="btn btn-success mr-2" type="submit" Merge"></input></form><a class="btn btn-warning ml-2" href="/novels/<%=novel._id%>/<%=part._id%>">Read it</a>
+                               <form class="form-inline" action="/novels/<%=novel._id%>/merge/<%=part._id%>" method="POST"><input class="btn btn-success mr-2" type="submit" value="Merge"></input><a class="btn btn-warning ml-2" href="/novels/<%=novel._id%>/<%=part._id%>">Read it</a></form>
                             </div>
                         <% }) %>
                         </div>
