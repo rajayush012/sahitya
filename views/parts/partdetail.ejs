@@ -31,7 +31,7 @@
                 </div>
                 <a class="btn btn-warning" href="/novels/<%= novelid %>">Go back</a>
             </div>
-            <%if (currentUser._id === part.collabauthor.id) { %>
+            <%if (currentUser._id !== part.collabauthor.id) { %>
             <form class="form-inline" action="/novels/<%=novelid%>/merge/<%=part._id%>" method="POST">
                 <input class="btn btn-success mr-2" type="submit" value="Merge"></input>
             </form>

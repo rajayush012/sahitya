@@ -154,7 +154,7 @@ router.post('/:novelid/merge/:partid',isLoggedIn,(req,res)=>{
                 if(err){
                     console.log(err);
                 }else{
-                    nov.content.push(newContent);
+                    nov.contents.push(obj);
                     nov.collabauthor.push(part.collabauthor);
                     nov.save();
                     Parts.findByIdAndDelete(req.params.partid,(err,newerres)=>{
