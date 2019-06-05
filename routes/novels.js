@@ -4,6 +4,14 @@ const Author = require('../models/authorModel');
 const router = express.Router();
 const Novels=require('../models/novelModel');
 const Parts = require('../models/partModel');
+const cors = require('cors');
+
+router.get('/allnovels',cors(),(req,res)=>{
+    Novels.find({},(err,novs)=>{
+        res.json({novs});
+    })
+})
+
 
 router.get('/',isLoggedIn,(req,res)=>{
     Novels.find({}, (err, posts)=>{
@@ -157,6 +165,7 @@ router.post('/:novelid/merge/:partid',isLoggedIn,(req,res)=>{
     })
     
 })
+
 
 function isLoggedIn(req,res,next){
     // console.log(req.isAuthenticated());
