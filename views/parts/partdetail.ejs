@@ -43,8 +43,8 @@
 
                 </div>
             </div>
-            
-            <%if (currentUser._id === part.collabauthor.id) { %>
+           
+            <%if (!currentUser._id.equals(part.collabauthor.id)) { %>
             <form class="form-inline" action="/novels/<%=novelid%>/merge/<%=part._id%>" method="POST">
                 <a class="btn btn-warning my-3" href="/novels/<%= novelid %>">Go back</a>
                 <input class="btn btn-success ml-3 my-3" type="submit" value="Merge"></input>
@@ -55,11 +55,10 @@
             </input>
             </form>
             <% } else {%>
-                <form class="form-inline" action="/novels/<%=novelid%>/edit/<%=part._id%>" method="POST">
-                    <textarea name="partcontent" id="" cols="30" rows="10">
-                        <%=part.partcontent%>
-                    </textarea>
-                <input class="btn btn-success mr-2" type="submit" value="Edit">
+                
+                <form action="/novels/<%=novelid%>/edit/<%=part._id%>" method="POST">
+                    <textarea name="partcontent" class="form-control"><%=part.partcontent%></textarea>
+                <input class="btn btn-success mr-2" type="submit" value="Merge"><a href="/novels" class="btn btn-dark">Go back</a>
                 </input>
                 </form>
                 <%}%>
