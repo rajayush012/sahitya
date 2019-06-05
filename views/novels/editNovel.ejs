@@ -22,8 +22,7 @@
                                 <div class="form-box">
                     
                                     <h1>Edit your Novel</h1>
-                    
-                                    <form action="/novel/<%=novel._id%>" method="POST">
+                                    <form action="/novels/<%=novel._id%>/edit" method="POST">
                                         <div class="form-group">
                                             <label>Title</label>
                                             <input type="text" value="<%=novel.title %>" class="form-control" name="title">
