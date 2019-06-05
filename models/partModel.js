@@ -14,7 +14,6 @@ const partSchema =new mongoose.Schema({
     }
 })
 
-
 module.exports = mongoose.model('Part',partSchema);
 
 

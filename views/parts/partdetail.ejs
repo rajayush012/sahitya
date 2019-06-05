@@ -34,6 +34,7 @@
                 </div>
                 
             </div>
+<<<<<<< HEAD
             <div class="diferenece">
                 <h4></h4>
                 <div class="container difbox">
@@ -44,6 +45,9 @@
                 </div>
             </div>
             
+=======
+            <%if (currentUser._id === part.collabauthor.id) { %>
+>>>>>>> d103e7a540938ec03ededb4e24125741071dbe34
             <form class="form-inline" action="/novels/<%=novelid%>/merge/<%=part._id%>" method="POST">
                 <a class="btn btn-warning my-3" href="/novels/<%= novelid %>">Go back</a>
                 <input class="btn btn-success ml-3 my-3" type="submit" value="Merge"></input>
@@ -53,6 +57,16 @@
                 <input class="btn btn-danger ml-3 my-3" type="submit" name="status" value="Reject">
             </input>
             </form>
+            <% } else {%>
+                <form class="form-inline" action="/novels/<%=novelid%>/edit/<%=part._id%>" method="POST">
+                    <textarea name="partcontent" id="" cols="30" rows="10">
+                        <%=part.partcontent%>
+                    </textarea>
+                <input class="btn btn-success mr-2" type="submit" value="Edit">
+                </input>
+                </form>
+                <%}%>
+
         </div>
 
 

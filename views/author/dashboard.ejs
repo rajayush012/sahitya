@@ -28,7 +28,105 @@
                         <a href="/author/logout" class="nav-item nav-link">Signed in as <%= currentUser.name %> : Logout</a>
                         
                            
-                          
+                        <!DOCTYPE html>
+                        <html>
+                        <head>
+                            <meta charset="utf-8" />
+                            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                            <title>स : Dashboard</title>
+                            <meta name="viewport" content="width=device-width, initial-scale=1">
+                            <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/dashboard.css" />
+                            <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+                        
+                        </head>
+                        <body>
+                            <div class="wrapper">
+                                    
+                            
+                            <header>
+                                    <nav class="navbar fixed-top navbar-light bg-light">
+                                            <a class="navbar-brand" href="/novels"><h3>सahitya</h3></a>
+                                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                                              <span class="navbar-toggler-icon"></span>
+                                            </button>
+                                            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                                              <div class="navbar-nav">
+                                                
+                                                <a class="nav-item nav-link" href="/novels">Home</a>
+                                                <a class="nav-item nav-link" href="/novels/addNovel">Start a new novel</a>
+                                                <a class="nav-item nav-link"  href="/author/dashboard" href="#">Dashboard</a>
+                                                <a href="/author/logout" class="nav-item nav-link">Signed in as <%= currentUser.name %> : Logout</a>
+                                                
+                                                   
+                                                  
+                                              </div>
+                                            </div>
+                                    </nav>
+                            </header>
+                            
+                            <main>
+                                <div class="container">
+                                    <div class="content-wrapper">
+                                        <div class="heading text-center">
+                                            <h2><span class="op"><%= currentUser.name %></span></h2>
+                                        </div>
+                                        <div class="mt-4">
+                                            <ul class="text-center">
+                                                <li><h3>Username: <%= currentUser.username %></h3></li>
+                                                <li><h3>Email id: <%= currentUser.email %></h3></li>
+                                            </ul>
+                                            <hr>
+                                            <ul class="text-center"> 
+                                                <% if(novels.length !== 0) { %>
+                                                    <h4>Novels on सahitya</h4>
+                                                <% novels.forEach((novel)=>{ %>
+                                                  <li><a href="/novels/<%= novel._id %>" style="text-decoration:none"><%= novel.title %></a><span class="<% if(novel.status === 'incomplete'){ %>status-red<%}else{ %>status-green<% } %> "></span></li>
+                                                <% }) %>
+                                                <% } %>
+                                            </ul>
+                                            <ul class="text-center"> 
+                                                <% if(parts.length !== 0) {%>
+                                                    <h4>Pending Collaborations Request</h4>
+                                                    <% parts.forEach((part)=>{ if (part.status !=="Reject") { %>
+                                                      <li><a href="/novels/<%= part.novelid %>/<%=part._id%>" style="text-decoration:none"><%= part.title %></a></li>
+                                                    <% }}) %>
+                                                    <% } %>
+                                                </ul>
+                                                <ul class="text-center"> 
+                                                    <% if(parts.length !== 0) {%>
+                                                        <h4>Rejected Collaborations Request</h4>
+                                                        <% parts.forEach((part)=>{ if (part.status ==="Reject") { %>
+                                                          <li><a href="/novels/<%= part.novelid %>/<%=part._id%>" style="text-decoration:none"><%= part.title %></a>
+                                                            Comments : <%= part.comment %>
+                                                        </li>
+                                                        <% }}) %>
+                                                        <% } %>
+                                                    </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                            </main>
+                        
+                            <footer>
+                        
+                            </footer>
+                        
+                        </div>
+                            
+                            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                                crossorigin="anonymous"></script>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                                crossorigin="anonymous"></script>
+                            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                                crossorigin="anonymous"></script>
+                                <script src="/scripts/dashboard.js"></script>
+                            </body>
+                        
+                        </html>
+                        
+                        
+                        
                       </div>
                     </div>
             </nav>
