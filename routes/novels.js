@@ -115,6 +115,16 @@ router.post('/:novelid/edit',isLoggedIn, (req,res)=>
     })
 })
 
+router.get('/:novelid/time',(req,res)=>{
+   Novels.findById(req.params.novelid,(err,novel)=>{
+       if(err){
+           console.log(err);
+       }else{
+           res.render('novels/timeline',{novel:novel});
+       }
+   })
+})
+
 router.post('/:novelid/delete',isLoggedIn, (req,res)=>
 {
     Novels.findByIdAndDelete(req.params.novelid,(err,novel)=>{
@@ -143,6 +153,8 @@ router.get('/:novelid/:partid',isLoggedIn,(req,res)=>{
         }
     })
 });
+
+
 
 
 router.post('/:novelid/merge/:partid',isLoggedIn,(req,res)=>{
