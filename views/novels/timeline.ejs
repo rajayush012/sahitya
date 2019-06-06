@@ -18,17 +18,17 @@
     <main>
      <div class="container">
         <ul id="time" >
-            <%for (let i=0; i<(novel.contents.length);i++){%>
+            <% novel.contents.forEach((content)=>{ %>
                 <li>
-                    <%= novel.contents[i].timestamp %>
+                    <%=content.timestamp %>
                     <br>
-                    <%=novel.contents[i].content %>
+                    <%=content.content %>
                     <br>
-                    <form action="/novels/<%=novel._id%>/time/<%=novel.contents[i]._id" method="post">
+                    <form action="/novels/<%=novel._id%>/time/<%=content._id%>" method="post">
                         <input type="submit" value="Revert Changes to this location">
                     </form>
                 </li>
-                <%}%>
+                <%}) %>
         </ul>
      </div>
     </main>
