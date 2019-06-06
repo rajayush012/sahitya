@@ -43,13 +43,8 @@
 
                 </div>
             </div>
-<<<<<<< HEAD
             
-            <%if (currentUser._id !== part.collabauthor.id) { %>
-=======
-           
             <%if (!currentUser._id.equals(part.collabauthor.id)) { %>
->>>>>>> ad0e9092c3296213c986deca506f7105a0226bb4
             <form class="form-inline" action="/novels/<%=novelid%>/merge/<%=part._id%>" method="POST">
                 <a class="btn btn-warning my-3" href="/novels/<%= novelid %>">Go back</a>
                 <input class="btn btn-success ml-3 my-3" type="submit" value="Merge"></input>
