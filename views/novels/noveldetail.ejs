@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/stylesheets/noveldetail.css" />
     <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
-
+    <script src="/scripts/d3.v2.min.js"></script>
+    <script src="/scripts/timeknots.js"> </script>
 </head>
 <body>
     <header>
@@ -19,7 +20,6 @@
     <main>
         <div class="container">
             <div class="content-wrapper">
-            
                <div class="heading display-4"> <%= novel.title %> </div>
                 <div class="my-3 text-muted">by - <%= novel.mainauthor.name %></div>
                 <% if(novel.collabauthor.length !== 0) { %>
@@ -35,20 +35,24 @@
                 
                 <hr>
                 <div><h5>Content:</h5></div>
-                <div class="content container"><%= novel.contents[((novel.contents.length)-1)].content %></div>
+                <div class="content container">
+                       <p> <%=novel.contents[((novel.contents.length)-1)].content %></p>
+                </div>
                 <% if(novel.collabauthor){ %>
                     <div class="collabauth">
                         
                     </div>
                 <% } %>
-                <div>
+          
+                
                    
                     <hr>
 
                     <% if(!novel.mainauthor.id.equals(currentUser._id)){ %>
+                        <div>
                         <a href="/parts/<%=novel._id%>/addPart" class="btn btn-danger">Collaborate!</a> <a class="btn btn-dark ml-3" href="/novels">Go back to all novels</a>
                         <% }else{ %>
-                        
+                            
                             <form class="form-inline text-center" action="/novels/<%=novel._id%>/delete" method="POST">
                                 <div class="text-center"><a class="btn btn-info" href="/novels/<%=novel._id%>/edit">Edit it</a>
                             <input type="submit" class="btn btn-danger ml-3" value="Delete"> <a class="btn btn-dark ml-3" href="/novels">Go back to all novels</a>
@@ -77,16 +81,17 @@
                         
                 </div>
             </div>
-        </div>
+       <div class="">
+
+       </div>
     </main>
 
     <footer>
 
     </footer>
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    
 </body>
 </html>

@@ -51,6 +51,8 @@ body{
     padding: 20px;
     border-radius: 5px;
     border: 1px solid grey;
+    width: auto;
+    word-wrap: break-word;
 }
 
 .hidden{
@@ -64,3 +66,8 @@ body{
     border-radius: 5px;
     border: 1px solid grey;
 }
+
+
+
+
+

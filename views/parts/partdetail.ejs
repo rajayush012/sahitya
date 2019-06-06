@@ -57,8 +57,9 @@
             <% } else {%>
                 
                 <form action="/novels/<%=novelid%>/edit/<%=part._id%>" method="POST">
-                    <textarea name="partcontent" class="form-control"><%=part.partcontent%></textarea>
-                <input class="btn btn-success mr-2" type="submit" value="Merge"><a href="/novels" class="btn btn-dark">Go back</a>
+                    <h4 class="mt-4">Edit merge request:</h4>
+                    <textarea name="partcontent" class="form-control my-3"><%=part.partcontent%></textarea>
+                <input class="btn btn-success mr-2" type="submit" value="Resend Merge Request"><a href="/novels" class="btn btn-dark">Go back</a>
                 </input>
                 </form>
                 <%}%>
