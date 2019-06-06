@@ -17,7 +17,19 @@
 
     <main>
      <div class="container">
-
+        <ul id="time" >
+            <%for (let i=0; i<(novel.contents.length);i++){%>
+                <li>
+                    <%= novel.contents[i].timestamp %>
+                    <br>
+                    <%=novel.contents[i].content %>
+                    <br>
+                    <form action="/novels/<%=novel._id%>/time/<%=novel.contents[i]._id" method="post">
+                        <input type="submit" value="Revert Changes to this location">
+                    </form>
+                </li>
+                <%}%>
+        </ul>
      </div>
     </main>
 
