@@ -159,3 +159,13 @@ footer{
   opacity: 0.7;
 }
 
+.green-st{
+  color: green !important;
+  opacity: 0.8;
+}
+
+.red-st{
+  color: red !important;
+  opacity: 0.8;
+}
+
