@@ -20,33 +20,13 @@
          <a href="/novels/<%=novel._id%>" class="btn btn-dark mb-5">Go back</a>
          <h2>Timeline: </h2>
         <ul id="time" >
-            <% novel.contents.forEach((content)=>{ %>
+            <% novel.contents.forEach((item)=>{ %>
                 <li>
-                   <h4><%=content.timestamp %></h4>
-                    <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#exampleModalCenter">
-                            See content
-                          </button>
-
-                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h5 class="modal-title" id="exampleModalCenterTitle">Content</h5>
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
-                                </div>
-                                <div class="modal-body" style="word-wrap: break-word;">
-                                    <%=content.content %>
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                    
-                    <form action="/novels/<%=novel._id%>/time/<%=content._id%>" method="post">
+                   <h4><%=item.timestamp %></h4>
+                              <h3>Content:</h3>>        
+                                     <p> <%=item.content %></p>
+    
+                    <form action="/novels/<%=novel._id%>/time/<%=item._id%>" method="post">
                         <input type="submit" class="btn btn-danger mb-2" value="Revert Changes to this timestamp">
                     </form>
                 </li>

@@ -175,6 +175,7 @@ router.post('/:novelid/merge/:partid',isLoggedIn,(req,res)=>{
                     console.log(err);
                 }else{
                     nov.contents.push(obj);
+
                     nov.collabauthor.push(part.collabauthor);
                     
                     nov.save();
