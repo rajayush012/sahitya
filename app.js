@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
+const path = require('path')
 const authorRoutes = require('./routes/authors');
 const novelRoutes = require('./routes/novels');
 const partsRoutes = require('./routes/parts');
@@ -10,7 +11,15 @@ const localStrategy = require('passport-local');
 const passportLocalMongoose = require('passport-local-mongoose');
 const Author = require('./models/authorModel');
 const cors = require('cors');
-mongoose.connect("mongodb+srv://Alaap:alaap008@cluster0-dzslo.mongodb.net/test?retryWrites=true", function(err) {
+mongoose.connect("mongodb+srv://Alaap:alaap008@cluster0-dzslo.mongodb.net/test?retryWrites=true",
+    {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true,
+        useFindAndModify: false,
+      
+    }
+,function(err) {
     if (err) {
         console.log("Database Not Connected", err);
     } else {
@@ -44,10 +53,14 @@ app.use('/parts',partsRoutes);
 
 app.use(morgan('dev'));
 
-app.get('/',(req,res)=>{
-    res.render('home');
-})
+// app.get('/',(req,res)=>{
+//     res.render('home');
+// })
 
+app.use(express.static(path.join(__dirname,'client', 'build')))
+app.get('*',(req,res) => {
+  res.sendFile(path.join(__dirname,'client', 'build', 'index.html'))
+})
 
 
 app.listen(port, ()=>{
