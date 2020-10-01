@@ -1,0 +1,29 @@
+.sign-up{
+    flex: 40%;
+    padding: 10px;
+    display: flex;
+    border: 2px solid black;
+    flex-direction: column;
+
+    h2{
+        font-size: 30px;
+        text-align: center;
+    }
+
+    span{
+        font-size: 20px;
+        text-align: center;
+    }
+    .title{
+        margin: 10px 0;
+    }
+
+    button{
+        margin: 0 auto;
+    }
+
+    .special-margins{
+        display: block;
+        margin: 30px 0;
+    }
+}

@@ -53,9 +53,6 @@ app.use('/parts',partsRoutes);
 
 app.use(morgan('dev'));
 
-// app.get('/',(req,res)=>{
-//     res.render('home');
-// })
 
 app.use(express.static(path.join(__dirname,'client', 'build')))
 app.get('*',(req,res) => {

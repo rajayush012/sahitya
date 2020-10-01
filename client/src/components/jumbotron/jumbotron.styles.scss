@@ -1,0 +1,12 @@
+.jumbotron{
+    display: flex;
+    
+    min-height: 100vh;
+
+    .hero{
+        flex: 60%;
+        padding: 20px;
+        background: wheat;
+    }
+    
+}
