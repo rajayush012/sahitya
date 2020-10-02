@@ -1,8 +1,22 @@
 import React, { Component } from 'react';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
+import {Link} from 'react-router-dom'
+import styled from 'styled-components';
 
 import './signup.styles.scss';
+
+const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: black;
+    &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+    }
+    &:hover{
+        color:white;
+    }
+    
+`;
 
 
 export default class SignUp extends Component {
@@ -15,6 +29,7 @@ export default class SignUp extends Component {
             password : '',
             confirmPassword : ''
         };
+        
     }
 
     handleSubmit = async (e) => {
@@ -52,6 +67,7 @@ export default class SignUp extends Component {
 
     render() {
         const { displayName, email, password, confirmPassword} = this.state;
+        
         return (
             <div className='sign-up'>
                <h2 className='title'>Don't have an account?</h2>
@@ -90,7 +106,7 @@ export default class SignUp extends Component {
                     required
                 />
                 <div style={{textAlign: "center"}}><CustomButton type='submit'>Sign Up</CustomButton> <span className='special-margins'>{'or'}</span>
-                <CustomButton inverted>Sign in with your Sahitya account</CustomButton>
+                <StyledLink to='/signin'><CustomButton inverted>SIGN IN WITH YOUR SAHITYA ACCOUNT</CustomButton></StyledLink>
                 </div>
                </form>
             </div>
