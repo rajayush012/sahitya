@@ -25,7 +25,6 @@ router.post("/signup", (req, res, next) => {
             } else {
               const user = new Author({
                 _id: new mongoose.Types.ObjectId(),
-                username: req.body.username,
                 name: req.body.name,
                 email: req.body.email,
                 password: hash

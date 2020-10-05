@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
-import FormInput from '../form-input/form-input.component';
-import CustomButton from '../custom-button/custom-button.component';
+import React, { Component } from 'react'
+import FormInput from '../form-input/form-input.component'
+import CustomButton from '../custom-button/custom-button.component'
 import {Link} from 'react-router-dom'
-import styled from 'styled-components';
+import styled from 'styled-components'
+import axios from 'axios'
 
-import './signup.styles.scss';
+import './signup.styles.scss'
 
 const StyledLink = styled(Link)`
     text-decoration: none;
@@ -24,7 +25,7 @@ export default class SignUp extends Component {
         super();
 
         this.state = {
-            displayName : '',
+            name : '',
             email : '',
             password : '',
             confirmPassword : ''
@@ -34,27 +35,39 @@ export default class SignUp extends Component {
 
     handleSubmit = async (e) => {
         e.preventDefault();
-        const { displayName, email, password, confirmPassword} = this.state;
+        const { name, email, password, confirmPassword} = this.state;
 
-        // if(password !== confirmPassword){
-        //     alert(`Passwords don't match!`);
-        //     return;
-        // }
+        if(password !== confirmPassword){
+            alert(`Passwords don't match!`);
+            return;
+        }
 
-        // try{
-        // const {user} = await auth.createUserWithEmailAndPassword(email,password);
-        // await createUserProfileDocument(user,{displayName});
+        
+        const options = {
+            headers : {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        }
+        axios.post('http://localhost:3000/author/signup', {
+            name,email,password
+        },options)
+        .then(res => {
+            console.log(res.data)
 
-        // this.setState({
-        //     displayName : '',
-        //     email : '',
-        //     password : '',
-        //     confirmPassword : ''
-        // })
+            this.setState({
+                name : '',
+                email : '',
+                password : '',
+                confirmPassword : ''
+            })
+        })
+        .catch(err=>{
+            alert('Error creating')
+        })
 
-        // }catch(err){
-        //     console.error(err.message);
-        // }
+        
+
+        
 
     }
 
@@ -66,7 +79,7 @@ export default class SignUp extends Component {
     }
 
     render() {
-        const { displayName, email, password, confirmPassword} = this.state;
+        const { name, email, password, confirmPassword} = this.state;
         
         return (
             <div className='sign-up'>
@@ -75,8 +88,8 @@ export default class SignUp extends Component {
                <form className='sign-up-form' onSubmit={this.handleSubmit}>
                 <FormInput 
                     type='text'
-                    name='displayName'
-                    value={displayName}
+                    name='name'
+                    value={name}
                     label='Name'
                     onChange={this.handleChange}
                     required
