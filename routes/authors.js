@@ -9,6 +9,8 @@ const bcrypt = require('bcrypt');
 const jwt = require("jsonwebtoken");
 
 router.post("/signup", (req, res, next) => {
+    req.body = JSON.parse(Object.keys(req.body)[0])
+
     Author.find({ email: req.body.email })
       .exec()
       .then(user => {
@@ -32,7 +34,7 @@ router.post("/signup", (req, res, next) => {
               user
                 .save()
                 .then(result => {
-                  console.log(result);
+                  //console.log(result);
                   res.status(201).json({
                     message: "User created"
                   });
@@ -49,6 +51,8 @@ router.post("/signup", (req, res, next) => {
       });
   });
   router.post("/login", (req, res, next) => {
+    req.body = JSON.parse(Object.keys(req.body)[0])
+    
     Author.find({ email: req.body.email })
       .exec()
       .then(user => {
@@ -67,7 +71,8 @@ router.post("/signup", (req, res, next) => {
             const token = jwt.sign(
               {
                 email: user[0].email,
-                userId: user[0]._id
+                name : user[0].name,
+                userId: user[0]._id,
               },
               process.env.JWT_KEY,
               {
@@ -76,7 +81,8 @@ router.post("/signup", (req, res, next) => {
             );
             return res.status(200).json({
               message: "Auth successful",
-              token: token
+              token: token,
+              
             });
           }
           res.status(401).json({

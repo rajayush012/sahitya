@@ -27,9 +27,9 @@ mongoose.connect("mongodb+srv://Alaap:alaap008@cluster0-dzslo.mongodb.net/test?r
     }
 });
 
-const port = 3000;
+const port = 8000;
 const app = express();
-
+app.use(cors());
 app.set('view engine','ejs');
 app.use(require('express-session')({
     secret: "Old Monks",

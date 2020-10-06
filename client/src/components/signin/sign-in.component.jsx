@@ -4,6 +4,8 @@ import './sign-in.styles.scss';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 import styled from 'styled-components';
+import axios from 'axios';
+import jwt from 'jwt-decode';
 
 
 const StyledLink = styled(Link)`
@@ -29,10 +31,24 @@ export default class SignIn extends Component {
         }
     }
 
-    handleSubmit = async (e) => {
-        // e.preventDefault();
-
-        // const {email,password} = this.state;
+    handleSubmit = (e) => {
+        e.preventDefault();
+        const options = {
+            headers : {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        }
+        const {email,password} = this.state;
+        axios.post('http://localhost:8000/author/login',{
+            email,password
+        },options)
+        .then(res => {
+            const {name, email, _id} = jwt(res.data.token);
+            //set_user
+        })
+        .catch(err => {
+            console.log(err);
+        })
         // try{
         //     await auth.signInWithEmailAndPassword(email,password);
         //     this.setState({

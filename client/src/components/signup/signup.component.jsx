@@ -48,7 +48,7 @@ export default class SignUp extends Component {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
         }
-        axios.post('http://localhost:3000/author/signup', {
+        axios.post('http://localhost:8000/author/signup', {
             name,email,password
         },options)
         .then(res => {
