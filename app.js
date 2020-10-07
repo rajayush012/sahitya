@@ -11,6 +11,9 @@ const localStrategy = require('passport-local');
 const passportLocalMongoose = require('passport-local-mongoose');
 const Author = require('./models/authorModel');
 const cors = require('cors');
+
+require('dotenv').config()
+
 mongoose.connect("mongodb+srv://Alaap:alaap008@cluster0-dzslo.mongodb.net/test?retryWrites=true",
     {
         useNewUrlParser: true,

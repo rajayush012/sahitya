@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 import './sign-in.styles.scss';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 import styled from 'styled-components';
 import axios from 'axios';
 import jwt from 'jwt-decode';
+
+
 
 
 const StyledLink = styled(Link)`
@@ -21,7 +23,7 @@ const StyledLink = styled(Link)`
 `;
 
 
-export default class SignIn extends Component {
+class SignIn extends Component {
     constructor(props){
         super(props);
 
@@ -29,10 +31,12 @@ export default class SignIn extends Component {
             email : '',
             password : ''
         }
+        
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
+        //let history = useHistory()
         const options = {
             headers : {
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -43,22 +47,16 @@ export default class SignIn extends Component {
             email,password
         },options)
         .then(res => {
-            const {name, email, _id} = jwt(res.data.token);
+            const user = jwt(res.data.token);
             //set_user
+            this.props.history.push('/')
+            
+            this.props.handleUser(user)
         })
         .catch(err => {
             console.log(err);
         })
-        // try{
-        //     await auth.signInWithEmailAndPassword(email,password);
-        //     this.setState({
-        //         email : '',
-        //         password : ''
-        //     })
-        // }catch(err){
-        //     console.error(err.message);
-        // }
-
+   
     }
 
     handleChange = (e) => {
@@ -99,3 +97,5 @@ export default class SignIn extends Component {
         )
     }
 }
+
+export default withRouter(SignIn)
