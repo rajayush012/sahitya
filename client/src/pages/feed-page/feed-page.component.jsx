@@ -3,11 +3,12 @@ import Header from '../../components/header/header.component';
 import Feeds from '../../components/feeds/feeds.component';
 
 export default function FeedPage(props) {
-    const {handlelogout, currentuser} = props
+    
+    const {handleLogout, currentUser} = props
     return (
-        <div className='feed-page' handleLogout={handlelogout} currentUser={currentuser}>
+        <div className='feed-page'>
             <Header/>
-            <Feeds/>
+            <Feeds handleLogout={handleLogout} currentUser={currentUser}/>
         </div>
     )
 }

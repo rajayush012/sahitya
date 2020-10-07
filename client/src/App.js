@@ -38,8 +38,11 @@ class App extends React.Component {
             <Route 
             exact 
             path='/signin' 
-            render={() => (this.state.currentUser) ? (<Redirect to='/feed'/>) : (<SignInPage handleUser={user => this.handleUser(user)}/>) } />
-            <Route exact path='/feeds' render= {()=><FeedPage handlelogout={this.handleLogout} currentuser={this.state.currentUser}/>} />
+            render={() => (this.state.currentUser) ? (<Redirect to='/feeds'/>) : (<SignInPage handleUser={user => this.handleUser(user)}/>) } />
+            <Route 
+            exact 
+            path='/feeds' 
+            render= {()=>(this.state.currentUser) ? <FeedPage handleLogout={this.handleLogout} currentUser={this.state.currentUser}/> : <Redirect to='/'/>} />
         </div>
       );
     }

@@ -3,11 +3,12 @@ import './feeds.styles.scss'
 import CustomButton from '../custom-button/custom-button.component';
 
 export default function Feeds(props) {
-    const {handlelogout, currentuser} = props
+    
+    const {handleLogout, currentUser} = props
     return (
-        <div className='feeds' handlelogout={handlelogout} currentuser={currentuser}>
+        <div className='feeds'>
             Feeds
-            <CustomButton onClick={handlelogout} >LogOut</CustomButton>
+            <CustomButton onClick={handleLogout} >LogOut</CustomButton>
         </div>
     )
 }
