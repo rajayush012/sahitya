@@ -7,8 +7,8 @@ export default function FeedPage(props) {
     const {handleLogout, currentUser} = props
     return (
         <div className='feed-page'>
-            <Header/>
-            <Feeds handleLogout={handleLogout} currentUser={currentUser}/>
+            <Header handleLogout={handleLogout}/>
+            <Feeds currentUser={currentUser}/>
         </div>
     )
 }
