@@ -42,11 +42,13 @@ class App extends React.Component {
             <Route 
             exact 
             path='/feeds' 
-            render= {()=>(this.state.currentUser) ? <FeedPage handleLogout={this.handleLogout} currentUser={this.state.currentUser}/> : <Redirect to='/'/>} />
+            render= {()=><FeedPage handleLogout={this.handleLogout} currentUser={this.state.currentUser}/>} />
         </div>
       );
     }
 }
+
+//render= {()=>(this.state.currentUser) ? <FeedPage handleLogout={this.handleLogout} currentUser={this.state.currentUser}/> : <Redirect to='/'/>} />
 
 
 export default App
