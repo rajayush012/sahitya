@@ -1,14 +1,41 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import './feeds.styles.scss'
 
 
 
 export default function Feeds(props) {
+    const [page, setPage] = useState(1);
+    const [feeds, setFeeds] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        fetch(
+          `http://localhost:8000/novels/all`,
+          {
+            method: "GET"
+          }
+        )
+          .then(res => res.json())
+          .then(response => {
+            setFeeds(response);
+            setIsLoading(false);
+            //console.log(response)
+          })
+          .catch(error => console.log(error));
+      }, [page]);
+    
     
     const {currentUser} = props
     return (
         <div className='feeds'>
             Feeds
+            <div className='feed-item'>
+                {feeds.map(feed => (
+                    <h2 key={feed._id}> {feed.title}</h2>
+                )
+                    
+                )}
+            </div>
         </div>
     )
 }

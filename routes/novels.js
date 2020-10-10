@@ -6,9 +6,9 @@ const Novels=require('../models/novelModel');
 const Parts = require('../models/partModel');
 const cors = require('cors');
 
-router.get('/allnovels',cors(),(req,res)=>{
+router.get('/all',(req,res)=>{
     Novels.find({},(err,novs)=>{
-        res.json({novs});
+        res.json(novs);
     })
 })
 
