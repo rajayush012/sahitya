@@ -1,5 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import './feeds.styles.scss'
+import FeedItem from '../feed-item/feed-item.component';
 
 
 
@@ -31,7 +32,7 @@ export default function Feeds(props) {
             Feeds
             <div className='feed-item'>
                 {feeds.map(feed => (
-                    <h2 key={feed._id}> {feed.title}</h2>
+                    <FeedItem key={feed._id} feed={feed}/>
                 )
                     
                 )}
