@@ -29,7 +29,6 @@ export default function Feeds(props) {
     const {currentUser} = props
     return (
         <div className='feeds'>
-            Feeds
             <div className='feed-item'>
                 {feeds.map(feed => (
                     <FeedItem key={feed._id} feed={feed}/>
