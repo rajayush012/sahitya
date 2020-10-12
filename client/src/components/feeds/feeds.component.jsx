@@ -33,7 +33,6 @@ export default function Feeds(props) {
                 {feeds.map(feed => (
                     <FeedItem key={feed._id} feed={feed}/>
                 )
-                    
                 )}
             </div>
         </div>
