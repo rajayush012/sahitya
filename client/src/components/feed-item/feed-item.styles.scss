@@ -1,0 +1,17 @@
+.feed-item{
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+
+    .sub{
+        display: flex;
+        font-size: 20px;
+        width: 100%;
+        justify-content: space-between;
+        
+    }
+
+    .idea{
+        font-size: 25px;
+    }
+}
