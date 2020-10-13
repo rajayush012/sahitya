@@ -9,7 +9,7 @@ const StyledLink = styled(Link)`
     color: white;
     transition: 0.25s;
     &:hover{
-        color: wheat;
+        color: #f4c4f3;
     }
 `
 
