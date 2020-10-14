@@ -17,20 +17,33 @@ giving them features like version control, merging and rejecting content request
 
 ### 2. Move to the directory of the project 
 <p> Write in your terminal: </p>
+
+```
     cd sahitya
+```
 
 ### 3. Move to the client directory
 <p>Write in your terminal: </p>
+
+```
     cd client
+```
 
 ### 4. Install the dependencies
 <p>Run the next command on your terminal: </p>
+
+```
     npm install
+```
 
 ### 5. Run the development mode
 <p>Run the next command on your terminal: </p>
+
+```
     yarn start
-<p>To see the project open [http://localhost:3000](http://localhost:3000) on your browser. </p>
+```
+
+To see the project open [http://localhost:3000](http://localhost:3000) on your browser.
 
 ## And that's it! 
 <p>Now you should be seeing the project on your browser like this:</p>
