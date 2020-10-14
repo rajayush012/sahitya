@@ -9,30 +9,33 @@ giving them features like version control, merging and rejecting content request
 
 ## Starter Guide 🚀
 * **Yarn and Node.js must be previously installed**
-### Clone this repo into your local machine {#1}
+### 1. Clone this repo into your local machine 
 <p>You can do so with any of these options</p>
+<p align="center">
+  <img src="/cloning.png" width="350">
+</p>
 
-### Move to the directory of the project {#2}
+### 2. Move to the directory of the project 
 <p> Write in your terminal: </p>
-`cd sahitya`
+    cd sahitya
 
-### Move to the client directory {#3}
+### 3. Move to the client directory
 <p>Write in your terminal: </p>
-`cd client`
+    cd client
 
-### Install the dependencies {#4}
+### 4. Install the dependencies
 <p>Run the next command on your terminal: </p>
-`npm install`
+    npm install
 
-### Run the development mode {#5}
+### 5. Run the development mode
 <p>Run the next command on your terminal: </p>
-`yarn start`
+    yarn start
 <p>To see the project open [http://localhost:3000](http://localhost:3000) on your browser. </p>
 
 ## And that's it! 
 <p>Now you should be seeing the project on your browser like this:</p>
 <p align="center">
-  <img src="/sahitya.png" width="400">
+  <img src="/sahitya.png" width="550">
 </p>
 <p>If you make any changes to the code, they'll be automatically shown in your browser.</p>
 
