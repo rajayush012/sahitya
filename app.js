@@ -11,10 +11,11 @@ const localStrategy = require('passport-local');
 const passportLocalMongoose = require('passport-local-mongoose');
 const Author = require('./models/authorModel');
 const cors = require('cors');
+const keys = require('./keys') //add your ouwn mongoUri Key file
 
 require('dotenv').config()
 
-mongoose.connect("mongodb+srv://Alaap:alaap008@cluster0-dzslo.mongodb.net/test?retryWrites=true",
+mongoose.connect(keys.mongoURI,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -41,11 +42,13 @@ app.use(require('express-session')({
 }));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(passport.initialize());
-app.use(passport.session());
+
+require('./config/passport')(passport);
+//app.use(passport.session());
 app.use(express.static(__dirname+'/public'));
-passport.use(new localStrategy(Author.authenticate()));
-passport.serializeUser(Author.serializeUser());
-passport.deserializeUser(Author.deserializeUser());
+// passport.use(new localStrategy(Author.authenticate()));
+// passport.serializeUser(Author.serializeUser());
+// passport.deserializeUser(Author.deserializeUser());
 app.use((req,res,next)=>{
     res.locals.currentUser = req.user;
     next();

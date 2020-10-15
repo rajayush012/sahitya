@@ -19,41 +19,48 @@ router.post("/signup", (req, res, next) => {
             message: "Mail exists"
           });
         } else {
-          bcrypt.hash(req.body.password, 10, (err, hash) => {
-            if (err) {
-              return res.status(500).json({
-                error: err
-              });
-            } else {
-              const user = new Author({
-                _id: new mongoose.Types.ObjectId(),
-                name: req.body.name,
-                email: req.body.email,
-                password: hash
-              });
-              user
-                .save()
-                .then(result => {
-                  //console.log(result);
-                  res.status(201).json({
-                    message: "User created"
-                  });
-                })
-                .catch(err => {
-                  console.log(err);
-                  res.status(500).json({
-                    error: err
-                  });
+
+          bcrypt.genSalt(10,(err,salt) => {
+            bcrypt.hash(req.body.password, salt, (err, hash) => {
+              if (err) {
+                return res.status(500).json({
+                  error: err
                 });
-            }
-          });
+              } else {
+                const user = new Author({
+                  _id: new mongoose.Types.ObjectId(),
+                  name: req.body.name,
+                  email: req.body.email,
+                  password: hash
+                });
+                user
+                  .save()
+                  .then(result => {
+                    res.status(201).json({
+                      message: "User created"
+                    });
+                  })
+                  .catch(err => {
+                    console.log(err);
+                    res.status(500).json({
+                      error: err
+                    });
+                  });
+              }
+            });
+
+          })
+
+        
         }
       });
   });
+
+
   router.post("/login", (req, res, next) => {
     req.body = JSON.parse(Object.keys(req.body)[0])
     
-    Author.find({ email: req.body.email })
+    Author.findOne({ email: req.body.email })
       .exec()
       .then(user => {
         if (user.length < 1) {
@@ -61,7 +68,7 @@ router.post("/signup", (req, res, next) => {
             message: "Auth failed"
           });
         }
-        bcrypt.compare(req.body.password, user[0].password, (err, result) => {
+        bcrypt.compare(req.body.password, user.password, (err, result) => {
           if (err) {
             return res.status(401).json({
               message: "Auth failed"
@@ -70,9 +77,9 @@ router.post("/signup", (req, res, next) => {
           if (result) {
             const token = jwt.sign(
               {
-                email: user[0].email,
-                name : user[0].name,
-                userId: user[0]._id,
+                email: user.email,
+                name : user.name,
+                userId: user._id,
               },
               process.env.JWT_KEY,
               {

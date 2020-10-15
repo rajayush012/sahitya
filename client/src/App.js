@@ -1,15 +1,17 @@
 import React from 'react';
+import jwt from 'jwt-decode'
 import { Route, Redirect} from 'react-router-dom'
 import Homepage from './pages/hompage/homepage.component';
 import SignInPage from './pages/sigin-page/signin-page.component';
 import FeedPage from './pages/feed-page/feed-page.component';
+import setAuthToken from './config/setAuthToken';
 
 
 class App extends React.Component {
     constructor(){
       super()
       this.state = {
-        currentUser : null
+        currentUser : localStorage.getItem("token") ? jwt(localStorage.getItem("token")) : null
       }
     }
 
@@ -18,8 +20,10 @@ class App extends React.Component {
     }
     
     handleUser = (user) => {
+      //console.log(localStorage.getItem("token"))
+      setAuthToken(localStorage.getItem("token"))
       this.setState({
-        currentUser : user
+        currentUser : jwt(localStorage.getItem("token"))
       })
     }
 
@@ -27,6 +31,7 @@ class App extends React.Component {
       this.setState({
         currentUser : null
       })
+      setAuthToken(false);
     }
 
     render(){

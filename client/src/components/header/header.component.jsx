@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useCallback} from 'react'
 import {Link} from 'react-router-dom';
 import CustomButton from '../custom-button/custom-button.component';
 import './header.styles.scss'
@@ -14,6 +14,14 @@ const StyledLink = styled(Link)`
 `
 
 export default function Header(props) {
+
+   const handleLogout = useCallback(
+       () => {
+           localStorage.removeItem("token")
+       },
+       [],
+   )
+
     return (
         <div className='header'>
             
@@ -25,7 +33,7 @@ export default function Header(props) {
             <div className='navbar-links'>
                 <StyledLink className='links'>Home</StyledLink>
                 <StyledLink className='links'>Dashboard</StyledLink>
-                <span className='links'><CustomButton onClick={props.handleLogout}>Logout</CustomButton></span>
+                <span className='links'><CustomButton onClick={handleLogout}>Logout</CustomButton></span>
                 
             </div>
         </div>

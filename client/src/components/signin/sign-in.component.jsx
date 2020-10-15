@@ -9,7 +9,6 @@ import jwt from 'jwt-decode';
 
 
 
-
 const StyledLink = styled(Link)`
     text-decoration: none;
     color: black;
@@ -47,6 +46,8 @@ class SignIn extends Component {
             email,password
         },options)
         .then(res => {
+            console.log(res.data.token)
+            localStorage.setItem("token",res.data.token)
             const user = jwt(res.data.token);
             //set_user
             this.props.history.push('/')
