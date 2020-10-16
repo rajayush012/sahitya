@@ -39,7 +39,8 @@ giving them features like version control, merging and rejecting content request
 
 1. you can add a key.js file in root of the project and add mongoURL in that file
 
-```module.exports = {
+```
+module.exports = {
     mongoURI: "<your-mongo-uri>",
  };
  ```
@@ -48,7 +49,7 @@ giving them features like version control, merging and rejecting content request
 
 3. If you don't have mongo already installed then u can use MongoDB Atlas To Setup the The Atlas follow This Blog [Medium](https://medium.com/buka4chocksy/how-to-setup-mongodb-atlas-database-for-your-project-acd70b75a4e9)
 
-### 5. Run the development mode
+### 6. Run the development mode
 <p>Run the next command on your terminal: </p>
 
 ```
