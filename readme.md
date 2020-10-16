@@ -44,7 +44,7 @@ giving them features like version control, merging and rejecting content request
  };
  ```
 
-2. Now if you have mongo instlled already in your local System then replace "<your-mongo-uri>" to this url "mongodb://localhost:27017/{SchemaName}"
+2. Now if you have mongo instlled already in your local System then replace "your-mongo-uri" to this url "mongodb://localhost:27017/{SchemaName}"
 
 3. If you don't have mongo already installed then u can use MongoDB Atlas To Setup the The Atlas follow This Blog [Medium](https://medium.com/buka4chocksy/how-to-setup-mongodb-atlas-database-for-your-project-acd70b75a4e9)
 
