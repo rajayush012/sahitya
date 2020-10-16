@@ -35,7 +35,20 @@ giving them features like version control, merging and rejecting content request
 ```
     npm install
 ```
+### 5. MongoDb Setup
+```
+# you can add a key.js file in root of the project and add mongoURL in that file
 
+module.exports = {
+    mongoURI: "<your-mongo-uri>",
+ };
+
+# Now if you have mongo instlled already in your System then replace "<your-mongo-uri>" to this url "mongodb://        localhost:27017/airQualiy"
+
+# If U dont have mongo already installed then u can use MongoDB Atlas To Setup the The Atlas follow This Medium Blog
+  https://medium.com/@buka4chocksy/how-to-setup-mongodb-atlas-database-for-your-project-acd70b75a4e9
+  
+```
 ### 5. Run the development mode
 <p>Run the next command on your terminal: </p>
 
