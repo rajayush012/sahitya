@@ -13,18 +13,18 @@ router.get('/all',(req,res)=>{
 })
 
 
-router.get('/',isLoggedIn,(req,res)=>{
-    Novels.find({}, (err, posts)=>{
-        if (err){
-            console.log(err);
-            res.redirect('/');
-        }
-        else
-        {
-            res.render('novels/post',{posts: posts});
-        }
-    })
-});
+// router.get('/',isLoggedIn,(req,res)=>{
+//     Novels.find({}, (err, posts)=>{
+//         if (err){
+//             console.log(err);
+//             res.redirect('/');
+//         }
+//         else
+//         {
+//             res.render('novels/post',{posts: posts});
+//         }
+//     })
+// });
 
 
 router.post('/',isLoggedIn, (req,res)=>{
@@ -53,18 +53,25 @@ router.get('/addNovel',isLoggedIn,(req,res)=>{
     res.render('novels/addNovel');
 });
 
-router.get('/:novelid',isLoggedIn,(req,res)=>{
+//add a midleware to check auth
+router.get('/:novelid',cors(),(req,res)=>{
     Novels.findById(req.params.novelid, (err,novel)=>{
         if(err){
-            console.log(err);
-            res.redirect('/novels');
+            res.status(401).json({
+                error:'Invalid Novel id'
+            })
         }else{
 
             Parts.find({novelid: novel._id}, (err,parts)=>{
 
-                if(err)
-                    console.log(err);
-                res.render('novels/noveldetail',{novel: novel, parts:parts});
+                if(err){
+                    res.status(401).json({
+                        error: 'Parts not found'
+                    })
+                }
+                
+                else
+                res.status(200).json({novel: novel, parts:parts});
 
             })
             
