@@ -30,8 +30,11 @@ class App extends React.Component {
     handleLogout = () => {
       this.setState({
         currentUser : null
+      },()=>{
+        setAuthToken(false);
+        localStorage.removeItem("token")
       })
-      setAuthToken(false);
+      
     }
 
     render(){

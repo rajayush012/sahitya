@@ -8,7 +8,7 @@ export default function Feeds(props) {
     const [page, setPage] = useState(1);
     const [feeds, setFeeds] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-
+    
     useEffect(() => {
         fetch(
           `http://localhost:8000/novels/all`,

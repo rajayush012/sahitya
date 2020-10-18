@@ -15,12 +15,7 @@ const StyledLink = styled(Link)`
 
 export default function Header(props) {
 
-   const handleLogout = useCallback(
-       () => {
-           localStorage.removeItem("token")
-       },
-       [],
-   )
+   const {handleLogout} = props;
 
     return (
         <div className='header'>
