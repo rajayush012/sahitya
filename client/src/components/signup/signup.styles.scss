@@ -1,31 +1,37 @@
-.sign-up{
-    flex: 40%;
-    padding: 10px;
-    display: flex;
-    border: 2px solid black;
-    flex-direction: column;
+$break-small: 1045px;
 
-    h2{
-        font-size: 30px;
-        text-align: center;
-    }
+.sign-up {
+   flex: 40%;
+   padding: 10px;
+   display: flex;
+   border: 2px solid black;
+   flex-direction: column;
 
-    span{
-        font-size: 20px;
-        text-align: center;
-    }
-    .title{
-        margin: 10px 0;
-    }
+   h2 {
+      font-size: 30px;
+      text-align: center;
+   }
 
-    button{
-        margin: 0 auto;
-    }
+   span {
+      font-size: 20px;
+      text-align: center;
+   }
+   .title {
+      margin: 10px 0;
+   }
 
-    .special-margins{
-        display: block;
-        margin: 30px 0;
-    }
+   button {
+      margin: 0 auto;
+   }
 
-    
+   .special-margins {
+      display: block;
+      margin: 30px 0;
+   }
+
+   @media screen and (max-width: $break-small) {
+      display: grid;
+      flex: 100%;
+      width: 100%;
+   }
 }
