@@ -16,7 +16,9 @@ const StyledLink = styled(Link)`
 export default function Header(props) {
 
    const {handleLogout} = props;
-
+   const {currentUser} = props
+   //console.log(props)
+    // 
     return (
         <div className='header'>
             
@@ -28,6 +30,7 @@ export default function Header(props) {
             <div className='navbar-links'>
                 <StyledLink className='links'>Home</StyledLink>
                 <StyledLink className='links'>Dashboard</StyledLink>
+                <StyledLink className='links'>{currentUser.name.split(" ")[0]}'s Profile</StyledLink>
                 <span className='links'><CustomButton onClick={handleLogout}>Logout</CustomButton></span>
                 
             </div>

@@ -1,6 +1,5 @@
 {
   "name": "client",
-  "homepage": "http://localhost:8000",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -40,8 +39,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "proxy": {
-    "*":{ "target" : "http://localhost:8000"}
- }
+  }
 }

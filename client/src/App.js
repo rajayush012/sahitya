@@ -17,9 +17,7 @@ class App extends React.Component {
       }
     }
 
-    componentDidMount(){
-      
-    }
+    
     
     handleUser = (user) => {
       //console.log(localStorage.getItem("token"))
@@ -42,7 +40,7 @@ class App extends React.Component {
     render(){
       return (
         <div className="App">
-            {this.state.currentUser ? <Header handleLogout={this.handleLogout}></Header>:null}
+            {this.state.currentUser ? <Header currentUser={this.state.currentUser} handleLogout={this.handleLogout}></Header>:null}
             <Route 
             exact path='/' 
             render={() => (this.state.currentUser) ? (<Redirect to='/feeds'/>): (<Homepage/>)} />
@@ -52,6 +50,12 @@ class App extends React.Component {
             path='/feeds' 
            // render= {()=><FeedPage handleLogout={this.handleLogout} currentUser={this.state.currentUser}/>} 
             render= {()=>(this.state.currentUser) ? <FeedPage handleLogout={this.handleLogout} currentUser={this.state.currentUser}/> : <Redirect to='/'/>}
+            />
+            <Route 
+            exact 
+            path='/signin' 
+           // render= {()=><FeedPage handleLogout={this.handleLogout} currentUser={this.state.currentUser}/>} 
+            render= {()=><SignInPage handleUser={this.handleUser}/>}
             />
             <Route 
             exact 

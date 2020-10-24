@@ -66,6 +66,8 @@ export default class SignUp extends Component {
                email: "",
                password: "",
                confirmPassword: "",
+            },()=>{
+               alert('Account Sucessfully created!')
             });
          })
          .catch((err) => {
