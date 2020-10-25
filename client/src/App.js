@@ -16,8 +16,6 @@ class App extends React.Component {
         currentUser : localStorage.getItem("token") ? jwt(localStorage.getItem("token")) : null
       }
     }
-
-    
     
     handleUser = (user) => {
       //console.log(localStorage.getItem("token"))
