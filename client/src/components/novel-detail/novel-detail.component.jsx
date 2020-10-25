@@ -12,14 +12,17 @@ export default function NovelDetail(props) {
         .then(res=> res.data)
         .then(res =>{
             setNovel(res.novel)
-        })
+            })
     }, [])
-
+    
     return (
         <div className='novel-detail'>
-            <h1>{novel.title}</h1>
-            <h2>{novel.genre}</h2>
-            <p>{novel.status}</p>
+            <h1>Title - {novel.title}</h1>
+            <h2>Gnere - {novel.genre}</h2>
+            <p>Status - {novel.status}</p>
+            <hr />
+            <p>{novel.contents && novel.contents.splice(-1)[0].content}</p>
+            
         </div>
     )
 }
