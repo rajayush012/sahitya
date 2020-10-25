@@ -28,8 +28,8 @@ export default function Header(props) {
                 </div>
             </div>
             <div className='navbar-links'>
-                <StyledLink className='links'>Home</StyledLink>
-                <StyledLink className='links'>Dashboard</StyledLink>
+                <StyledLink to='/feeds' className='links'>Home</StyledLink>
+                <StyledLink to='/profile' className='links'>Dashboard</StyledLink>
                 <StyledLink className='links'>{currentUser.name.split(" ")[0]}'s Profile</StyledLink>
                 <span className='links'><CustomButton onClick={handleLogout}>Logout</CustomButton></span>
                 
